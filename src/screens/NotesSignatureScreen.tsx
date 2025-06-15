@@ -156,7 +156,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
     marginBottom: 15,
-    color: '#2196F3',
+    color: '#cf2b24',
   },
   damageItem: {
     flexDirection: 'row',
@@ -227,14 +227,14 @@ const styles = StyleSheet.create({
     fontWeight: 'bold',
   },
   finishButton: {
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#d2de24',
     borderRadius: 10,
     padding: 15,
     flex: 0.45,
     alignItems: 'center',
   },
   finishButtonText: {
-    color: '#fff',
+    color: '#767c28',
     fontSize: 16,
     fontWeight: 'bold',
   },

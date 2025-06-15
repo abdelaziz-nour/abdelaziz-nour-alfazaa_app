@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: "500",
     textAlign: "center",
-    color: "#2196F3",
+    color: "#cf2b24",
   },
   damageList: {
     backgroundColor: "#fff",
@@ -221,14 +221,14 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
   },
   nextButton: {
-    backgroundColor: "#2196F3",
+    backgroundColor: "#d2de24",
     borderRadius: 10,
     padding: 15,
     flex: 0.45,
     alignItems: "center",
   },
   nextButtonText: {
-    color: "#fff",
+    color: "#767c28",
     fontSize: 16,
     fontWeight: "bold",
   },
