@@ -1,97 +1,89 @@
-import {createContext, useContext, useReducer, ReactNode} from 'react';
+"use client"
+
+import type React from "react"
+import { createContext, useContext, useReducer, type ReactNode } from "react"
+import type { DamageNote } from "../types"
 
 interface VehicleState {
-  driverName: string;
-  driverId: string;
-  customerName: string;
-  customerPhone: string;
-  vehiclePlate: string;
-  vehicleColor: string;
-  vehicleType: string;
-  damageNotes: Array<{
-    part: string;
-    damage: string;
-    timestamp?: string;
-  }>;
-  generalComments: string;
-  signature: string | null;
-  timestamp: string | null;
+  driverName: string
+  driverId: string
+  customerName: string
+  customerPhone: string
+  vehiclePlate: string
+  vehicleColor: string
+  vehicleType: string
+  damageNotes: DamageNote[]
+  selectedParts: string[]
 }
 
 type VehicleAction =
-  | {type: 'UPDATE_FIELD'; field: string; value: string}
-  | {
-      type: 'ADD_DAMAGE_NOTE';
-      note: {part: string; damage: string; timestamp?: string};
-    }
-  | {type: 'REMOVE_DAMAGE_NOTE'; index: number}
-  | {type: 'SET_SIGNATURE'; signature: string}
-  | {type: 'RESET_FORM'};
+  | { type: "UPDATE_FIELD"; field: keyof VehicleState; value: any }
+  | { type: "ADD_DAMAGE_NOTE"; note: DamageNote }
+  | { type: "REMOVE_DAMAGE_NOTE"; index: number }
+  | { type: "TOGGLE_PART"; part: string }
+  | { type: "RESET_FORM" }
 
-interface VehicleContextType {
-  state: VehicleState;
-  dispatch: React.Dispatch<VehicleAction>;
+const initialState: VehicleState = {
+  driverName: "",
+  driverId: "",
+  customerName: "",
+  customerPhone: "",
+  vehiclePlate: "",
+  vehicleColor: "",
+  vehicleType: "Sedan",
+  damageNotes: [],
+  selectedParts: [],
 }
 
-const VehicleContext = createContext<VehicleContextType | undefined>(undefined);
-
-// ... rest of the context implementation remains the same ...const initialState = {
-const initialState = {
-  driverName: '',
-  driverId: '',
-  customerName: '',
-  customerPhone: '',
-  vehiclePlate: '',
-  vehicleColor: '',
-  vehicleType: 'Sedan',
-  damageNotes: [],
-  generalComments: '',
-  signature: null,
-  timestamp: null,
-};
-
-function vehicleReducer(state: VehicleState, action: VehicleAction) {
+function vehicleReducer(state: VehicleState, action: VehicleAction): VehicleState {
   switch (action.type) {
-    case 'UPDATE_FIELD':
-      return {...state, [action.field]: action.value};
-    case 'ADD_DAMAGE_NOTE':
+    case "UPDATE_FIELD":
+      return {
+        ...state,
+        [action.field]: action.value,
+      }
+    case "ADD_DAMAGE_NOTE":
       return {
         ...state,
         damageNotes: [...state.damageNotes, action.note],
-      };
-    case 'REMOVE_DAMAGE_NOTE':
+      }
+    case "REMOVE_DAMAGE_NOTE":
       return {
         ...state,
-        damageNotes: state.damageNotes.filter(
-          (_, index) => index !== action.index,
-        ),
-      };
-    case 'SET_SIGNATURE':
-      return {...state, signature: action.signature};
-    case 'RESET_FORM':
-      return {...initialState, timestamp: new Date().toISOString()};
+        damageNotes: state.damageNotes.filter((_, index) => index !== action.index),
+      }
+    case "TOGGLE_PART":
+      const isSelected = state.selectedParts.includes(action.part)
+      return {
+        ...state,
+        selectedParts: isSelected
+          ? state.selectedParts.filter((part) => part !== action.part)
+          : [...state.selectedParts, action.part],
+      }
+    case "RESET_FORM":
+      return initialState
     default:
-      return state;
+      return state
   }
 }
 
-export function VehicleProvider({children}: {children: ReactNode}) {
-  const [state, dispatch] = useReducer(vehicleReducer, {
-    ...initialState,
-    timestamp: new Date().toISOString(),
-  });
-
-  return (
-    <VehicleContext.Provider value={{state, dispatch}}>
-      {children}
-    </VehicleContext.Provider>
-  );
+interface VehicleContextType {
+  state: VehicleState
+  dispatch: React.Dispatch<VehicleAction>
 }
 
-export const useVehicle = () => {
-  const context = useContext(VehicleContext);
-  if (!context) {
-    throw new Error('useVehicle must be used within VehicleProvider');
+const VehicleContext = createContext<VehicleContextType | undefined>(undefined)
+
+export function VehicleProvider({ children }: { children: ReactNode }) {
+  const [state, dispatch] = useReducer(vehicleReducer, initialState)
+
+  return <VehicleContext.Provider value={{ state, dispatch }}>{children}</VehicleContext.Provider>
+}
+
+export function useVehicle() {
+  const context = useContext(VehicleContext)
+  if (context === undefined) {
+    throw new Error("useVehicle must be used within a VehicleProvider")
   }
-  return context;
-};
+  return context
+}
