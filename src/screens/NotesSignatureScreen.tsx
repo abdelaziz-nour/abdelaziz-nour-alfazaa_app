@@ -14,6 +14,7 @@ import DatabaseService from '../services/DatabaseService';
 import {RootStackParamList} from '../types';
 import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 import PrinterService from '../services/PrinterService';
+import GoogleDriveService from '../services/GoogleDriveService';
 
 interface NotesSignatureScreenProps {
   navigation: NativeStackNavigationProp<RootStackParamList, 'NotesSignature'>;
@@ -38,26 +39,40 @@ export default function NotesSignatureScreen({
         createdAt: new Date().toISOString(),
       };
 
+      // 1. Save to local database
       await DatabaseService.saveIntakeRecord(intakeRecord);
 
-      console.log('PrinterService:', PrinterService);
-      console.log('PrinterService.printReceipt:', PrinterService.printReceipt);
-
+      // 2. Print receipt
       await PrinterService.printReceipt(intakeRecord);
 
-      // Alert.alert(
-      //   'Success!',
-      //   'Vehicle intake completed. Please have customer sign the printed receipt.',
-      //   [
-      //     {
-      //       text: 'New Intake',
-      //       onPress: () => {
-      //         dispatch({type: 'RESET_FORM'});
-      //         navigation.navigate('IntakeForm');
-      //       },
-      //     },
-      //   ],
-      // );
+      // 3. Create folder and upload to Google Drive
+      try {
+        await GoogleDriveService.createFolderIfNotExists('Alfazaa Intake Reports');
+        const fileId = await GoogleDriveService.uploadIntakeReport(intakeRecord);
+        
+        // 4. Update sync status
+        await DatabaseService.updateSyncStatus(intakeRecord.id, true);
+        
+        console.log('Successfully uploaded to Google Drive with file ID:', fileId);
+      } catch (driveError) {
+        console.error('Google Drive upload failed:', driveError);
+        // Don't fail the entire process if Drive upload fails
+        await DatabaseService.updateSyncStatus(intakeRecord.id, false);
+      }
+
+      Alert.alert(
+        'Success!',
+        'Vehicle intake completed and PDF report generated.',
+        [
+          {
+            text: 'New Intake',
+            onPress: () => {
+              dispatch({type: 'RESET_FORM'});
+              navigation.navigate('IntakeForm');
+            },
+          },
+        ],
+      );
     } catch (error) {
       console.error('Error completing intake:', error);
       Alert.alert('Error', 'Failed to complete intake. Please try again.');

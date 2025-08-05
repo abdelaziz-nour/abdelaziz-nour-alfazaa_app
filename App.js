@@ -18,6 +18,7 @@ export default function App() {
     const initApp = async () => {
       try {
         await DatabaseService.initDatabase();
+        console.log('Database initialized successfully');
         console.log('App initialized successfully');
       } catch (error) {
         console.error('App initialization error:', error);
