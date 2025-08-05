@@ -131,6 +131,24 @@ class DatabaseService {
     }
   }
 
+  async updateSyncStatus(recordId: string, synced: boolean): Promise<void> {
+    if (!this.db) throw new Error("Database not initialized");
+
+    try {
+      const updateQuery = `
+        UPDATE intake_records 
+        SET synced = ? 
+        WHERE id = ?;
+      `;
+
+      await this.db.execute(updateQuery, [synced ? 1 : 0, recordId]);
+      console.log("Sync status updated successfully");
+    } catch (error) {
+      console.error("Error updating sync status:", error);
+      throw error;
+    }
+  }
+
   async closeDatabase(): Promise<void> {
     if (this.db) {  // Changed to this.db
       await this.db.close();
