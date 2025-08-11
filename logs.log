@@ -1,0 +1,1450 @@
+console.js:654 Running "alfazaa_mobile" with {"rootTag":11,"initialProps":{},"fabric":true}
+console.js:654 Warning: Error: Incompatible React versions: The "react" and "react-native-renderer" packages must have the exact same version. Instead got:
+  - react:                  19.1.1
+  - react-native-renderer:  19.0.0
+Learn more: https://react.dev/warnings/version-mismatch, js engine: hermes
+    at PanGestureHandler (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:121046:38)
+    at PanGestureHandler (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:120333:34)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Animated(View) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28)
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+handleError @ setUpErrorHandling.js:25
+reportFatalError @ error-guard.js:49
+guardedLoadModule @ require.js:185
+metroRequire @ require.js:98
+findNodeHandle @ RendererImplementation.js:72
+componentDidMount @ createHandler.tsx:250
+reactStackBottomFrame @ ReactFabric-dev.js:14791
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10066
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10212
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10189
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 160 more frames
+Show less
+console.js:654 Warning: Error: Incompatible React versions: The "react" and "react-native-renderer" packages must have the exact same version. Instead got:
+  - react:                  19.1.1
+  - react-native-renderer:  19.0.0
+Learn more: https://react.dev/warnings/version-mismatch, js engine: hermes
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28)
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+handleError @ setUpErrorHandling.js:25
+reportFatalError @ error-guard.js:49
+guardedLoadModule @ require.js:185
+metroRequire @ require.js:98
+findNodeHandle @ RendererImplementation.js:72
+__connectAnimatedView @ AnimatedProps.js:218
+__makeNative @ AnimatedProps.js:201
+__makeNative @ AnimatedWithChildren.js:33
+anonymous @ AnimatedStyle.js:21
+__makeNative @ AnimatedStyle.js:222
+__makeNative @ AnimatedWithChildren.js:33
+anonymous @ AnimatedInterpolation.js:25
+__makeNative @ AnimatedInterpolation.js:359
+__makeNative @ AnimatedWithChildren.js:33
+anonymous @ AnimatedValue.js:22
+__makeNative @ AnimatedValue.js:125
+__startAnimationIfNative @ Animation.js:132
+start @ TimingAnimation.js:121
+start @ TimingAnimation.js:137
+animate @ AnimatedValue.js:313
+start @ AnimatedImplementation.js:231
+start @ AnimatedImplementation.js:238
+anonymous @ Card.tsx:206
+componentDidMount @ Card.tsx:108
+reactStackBottomFrame @ ReactFabric-dev.js:14791
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10066
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10212
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10189
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 160 more frames
+Show less
+console.js:654 Warning: Error: Incompatible React versions: The "react" and "react-native-renderer" packages must have the exact same version. Instead got:
+  - react:                  19.1.1
+  - react-native-renderer:  19.0.0
+Learn more: https://react.dev/warnings/version-mismatch, js engine: hermes
+    at Animated(View) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28)
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+handleError @ setUpErrorHandling.js:25
+reportFatalError @ error-guard.js:49
+guardedLoadModule @ require.js:185
+metroRequire @ require.js:98
+findNodeHandle @ RendererImplementation.js:72
+__disconnectAnimatedView @ AnimatedProps.js:234
+__detach @ AnimatedProps.js:168
+anonymous @ createAnimatedPropsHook.js:290
+reactStackBottomFrame @ ReactFabric-dev.js:14861
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitHookEffectListUnmount @ ReactFabric-dev.js:9665
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10307
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10335
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10355
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10335
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10335
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10427
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10493
+commitMutationEffects @ ReactFabric-dev.js:10419
+commitRootImpl @ ReactFabric-dev.js:12443
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 154 more frames
+Show less
+console.js:654 Warning: TypeError: Cannot read property 'default' of undefined
+
+This error is located at:
+    at PanGestureHandler (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:121046:38)
+    at PanGestureHandler (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:120333:34)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Animated(View) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+onUncaughtError @ ErrorHandlers.js:63
+logUncaughtError @ ReactFabric-dev.js:6414
+runWithFiberInDEV @ ReactFabric-dev.js:571
+anonymous @ ReactFabric-dev.js:6444
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10141
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 26 more frames
+Show less
+console.js:654 Warning: TypeError: Cannot read property 'default' of undefined
+
+This error is located at:
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+onUncaughtError @ ErrorHandlers.js:63
+logUncaughtError @ ReactFabric-dev.js:6414
+runWithFiberInDEV @ ReactFabric-dev.js:571
+anonymous @ ReactFabric-dev.js:6444
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10141
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 26 more frames
+Show less
+console.js:654 Warning: TypeError: Cannot read property 'default' of undefined
+
+This error is located at:
+    at Animated(View) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Card (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119732:36)
+    at CardContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:119355:34)
+    at RNSScreen (<anonymous>)
+    at Animated(Anonymous) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at Suspender (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127905:22)
+    at Suspense (<anonymous>)
+    at Freeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127915:23)
+    at DelayedFreeze (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127870:22)
+    at InnerScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127708:41)
+    at Screen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127841:50)
+    at MaybeScreen (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127191:24)
+    at RNSScreenContainer (<anonymous>)
+    at ScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:128143:31)
+    at MaybeScreenContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:127181:23)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at Background (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:108725:21)
+    at CardStack (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:117248:36)
+    at RNCSafeAreaProvider (<anonymous>)
+    at SafeAreaProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116184:24)
+    at SafeAreaProviderCompat (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:116969:24)
+    at RNGestureHandlerRootView (<anonymous>)
+    at GestureHandlerRootView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:125637:21)
+    at StackView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107784:36)
+    at PreventRemoveProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:112828:25)
+    at NavigationContent (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113615:22)
+    at anonymous (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:113631:27)
+    at StackNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:107662:18)
+    at EnsureSingleNavigator (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109754:24)
+    at BaseNavigationContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:109351:28)
+    at ThemeProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115124:21)
+    at NavigationContainerInner (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:115013:26)
+    at VehicleProvider (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98872:24)
+    at App (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:98452:26)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at alfazaa_mobile(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+onUncaughtError @ ErrorHandlers.js:63
+logUncaughtError @ ReactFabric-dev.js:6414
+runWithFiberInDEV @ ReactFabric-dev.js:571
+anonymous @ ReactFabric-dev.js:6444
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10141
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 26 more frames
+Show less
+DatabaseService.ts:35 Database initialized successfully
+App.js:21 App initialized successfully
+console.js:654 Warning: Error: Incompatible React versions: The "react" and "react-native-renderer" packages must have the exact same version. Instead got:
+  - react:                  19.1.1
+  - react-native-renderer:  19.0.0
+Learn more: https://react.dev/warnings/version-mismatch, js engine: hermes
+    at RCTImageView (<anonymous>)
+    at Image (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:55135:106)
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28)
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+handleError @ setUpErrorHandling.js:25
+reportFatalError @ error-guard.js:49
+guardedLoadModule @ require.js:185
+metroRequire @ require.js:98
+findNodeHandle @ RendererImplementation.js:72
+__connectAnimatedView @ AnimatedProps.js:218
+setNativeView @ AnimatedProps.js:212
+anonymous @ createAnimatedPropsHook.js:115
+anonymous @ useRefEffect.js:40
+anonymous @ useMergeRefs.js:35
+anonymous @ useMergeRefs.js:29
+anonymous @ useRefEffect.js:40
+anonymous @ useMergeRefs.js:35
+anonymous @ useMergeRefs.js:29
+anonymous @ useRefEffect.js:40
+commitAttachRef @ ReactFabric-dev.js:9846
+runWithFiberInDEV @ ReactFabric-dev.js:571
+safelyAttachRef @ ReactFabric-dev.js:9864
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10162
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10048
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 106 more frames
+Show less
+console.js:654 Warning: Error: Incompatible React versions: The "react" and "react-native-renderer" packages must have the exact same version. Instead got:
+  - react:                  19.1.1
+  - react-native-renderer:  19.0.0
+Learn more: https://react.dev/warnings/version-mismatch, js engine: hermes
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28)
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+handleError @ setUpErrorHandling.js:25
+reportFatalError @ error-guard.js:49
+guardedLoadModule @ require.js:185
+metroRequire @ require.js:98
+findNodeHandle @ RendererImplementation.js:72
+__disconnectAnimatedView @ AnimatedProps.js:234
+__detach @ AnimatedProps.js:168
+anonymous @ createAnimatedPropsHook.js:290
+reactStackBottomFrame @ ReactFabric-dev.js:14861
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitHookEffectListUnmount @ ReactFabric-dev.js:9665
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10307
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10368
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10335
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10282
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10318
+recursivelyTraverseDeletionEffects @ ReactFabric-dev.js:10249
+commitDeletionEffectsOnFiber @ ReactFabric-dev.js:10335
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10427
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10461
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10480
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10445
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10480
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10445
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10599
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10445
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10599
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10445
+recursivelyTraverseMutationEffects @ ReactFabric-dev.js:10434
+commitMutationEffectsOnFiber @ ReactFabric-dev.js:10493
+commitMutationEffects @ ReactFabric-dev.js:10419
+commitRootImpl @ ReactFabric-dev.js:12443
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 96 more frames
+Show less
+console.js:654 Warning: TypeError: Cannot read property 'default' of undefined
+
+This error is located at:
+    at RCTImageView (<anonymous>)
+    at Image (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:55135:106)
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+onCaughtError @ ErrorHandlers.js:70
+logCaughtError @ ReactFabric-dev.js:6429
+runWithFiberInDEV @ ReactFabric-dev.js:571
+anonymous @ ReactFabric-dev.js:6476
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitClassCallbacks @ ReactFabric-dev.js:9746
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10120
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 45 more frames
+Show less
+console.js:654 TypeError: An error was thrown when attempting to render log messages via LogBox.
+
+Cannot read property 'default' of undefined
+
+This error is located at:
+    at RCTImageView (<anonymous>)
+    at Image (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:55135:106)
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:199
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+reportLogBoxError @ LogBoxData.js:114
+componentDidCatch @ LogBoxData.js:444
+reactStackBottomFrame @ ReactFabric-dev.js:14821
+anonymous @ ReactFabric-dev.js:6487
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitClassCallbacks @ ReactFabric-dev.js:9746
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10120
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 45 more frames
+Show less
+console.js:654 Warning: TypeError: Cannot read property 'default' of undefined
+
+This error is located at:
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:260
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+onCaughtError @ ErrorHandlers.js:70
+logCaughtError @ ReactFabric-dev.js:6429
+runWithFiberInDEV @ ReactFabric-dev.js:571
+anonymous @ ReactFabric-dev.js:6476
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitClassCallbacks @ ReactFabric-dev.js:9746
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10120
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 45 more frames
+Show less
+console.js:654 TypeError: An error was thrown when attempting to render log messages via LogBox.
+
+Cannot read property 'default' of undefined
+
+This error is located at:
+    at Animated(Image) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:61570:47)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxButton (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:53515:41)
+    at LogBoxInspectorSourceMapStatus (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70848:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspectorSection (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70324:26)
+    at LogBoxInspectorStackFrames (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:70689:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTScrollView (<anonymous>)
+    at ScrollView (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:56726:36)
+    at Wrapper (<anonymous>)
+    at LogBoxInspectorBody (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69309:41)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at LogBoxInspector (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69228:21)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at _LogBoxInspectorContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69161:36)
+    at LogBoxStateSubscription (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:21419:38)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at RCTView (<anonymous>)
+    at View (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:52089:43)
+    at AppContainer (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:51979:25)
+    at LogBox(RootComponent) (http://10.0.2.2:8081/index.bundle//&platform=android&dev=true&lazy=true&minify=false&app=com.alfazaa_mobile&modulesOnly=false&runModule=true&excludeSource=true&sourcePaths=url-server:69056:28), js engine: hermes
+anonymous @ console.js:654
+overrideMethod @ backend.js:17416
+reactConsoleErrorHandler @ ExceptionsManager.js:182
+anonymous @ setUpDeveloperTools.js:40
+registerError @ LogBox.js:199
+anonymous @ LogBox.js:80
+reportException @ ExceptionsManager.js:111
+handleException @ ExceptionsManager.js:171
+reportLogBoxError @ LogBoxData.js:114
+componentDidCatch @ LogBoxData.js:444
+reactStackBottomFrame @ ReactFabric-dev.js:14821
+anonymous @ ReactFabric-dev.js:6487
+callCallback @ ReactFabric-dev.js:3186
+commitCallbacks @ ReactFabric-dev.js:3206
+runWithFiberInDEV @ ReactFabric-dev.js:571
+commitClassCallbacks @ ReactFabric-dev.js:9746
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10120
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10160
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10223
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10043
+recursivelyTraverseLayoutEffects @ ReactFabric-dev.js:10624
+commitLayoutEffectOnFiber @ ReactFabric-dev.js:10125
+commitLayoutEffects @ ReactFabric-dev.js:10618
+commitRootImpl @ ReactFabric-dev.js:12455
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performSyncWorkOnRoot @ ReactFabric-dev.js:2822
+flushSyncWorkAcrossRoots_impl @ ReactFabric-dev.js:2689
+commitRootImpl @ ReactFabric-dev.js:12503
+commitRootWhenReady @ ReactFabric-dev.js:11705
+performWorkOnRoot @ ReactFabric-dev.js:11652
+performWorkOnRootViaSchedulerTask @ ReactFabric-dev.js:2807
+Show 45 more frames
+Show less
+Welcome to React Native DevTools
+Debugger integration: Android Bridgeless (ReactHostImpl)
