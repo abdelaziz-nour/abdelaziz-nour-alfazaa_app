@@ -1,4 +1,4 @@
-import {useState, useRef} from 'react';
+import {useState} from 'react';
 import {
   View,
   Text,
@@ -45,22 +45,49 @@ export default function NotesSignatureScreen({
 
       await PrinterService.printReceipt(intakeRecord);
 
-      // Alert.alert(
-      //   'Success!',
-      //   'Vehicle intake completed. Please have customer sign the printed receipt.',
-      //   [
-      //     {
-      //       text: 'New Intake',
-      //       onPress: () => {
-      //         dispatch({type: 'RESET_FORM'});
-      //         navigation.navigate('IntakeForm');
-      //       },
-      //     },
-      //   ],
-      // );
+      // Convert HTML to PDF and save to Google Drive
+      console.log('Converting HTML to PDF and saving to Google Drive...');
+      const pdfResult = await PrinterService.convertHtmlToPdfAndSave(intakeRecord);
+      
+      if (pdfResult.success) {
+        Alert.alert(
+          'Success! 🎉',
+          `Vehicle intake completed successfully!\n\n📄 PDF Report: ${pdfResult.fileUrl ? 'Saved to Google Drive' : 'Generated'}\n🖨️ Receipt: Printed\n💾 Database: Saved locally`,
+          [
+            {
+              text: 'New Intake',
+              onPress: () => {
+                dispatch({type: 'RESET_FORM'});
+                navigation.navigate('IntakeForm');
+              },
+            },
+          ],
+        );
+      } else {
+        Alert.alert(
+          'Partial Success ⚠️',
+          `Intake completed and printed, but PDF conversion failed:\n\n❌ ${pdfResult.error}\n\n🖨️ Receipt: Printed\n💾 Database: Saved locally\n\nPlease check your internet connection and try again.`,
+          [
+            {
+              text: 'Try Again',
+              onPress: () => handleFinishAndPrint(),
+            },
+            {
+              text: 'New Intake',
+              onPress: () => {
+                dispatch({type: 'RESET_FORM'});
+                navigation.navigate('IntakeForm');
+              },
+            },
+          ],
+        );
+      }
     } catch (error) {
       console.error('Error completing intake:', error);
-      Alert.alert('Error', 'Failed to complete intake. Please try again.');
+      Alert.alert(
+        'Error ❌', 
+        `Failed to complete intake: ${error instanceof Error ? error.message : 'Unknown error'}\n\nPlease try again.`
+      );
     } finally {
       setIsLoading(false);
     }
@@ -120,7 +147,7 @@ export default function NotesSignatureScreen({
             {isLoading ? (
               <ActivityIndicator color="#fff" />
             ) : (
-              <Text style={styles.finishButtonText}>Finish & Print</Text>
+              <Text style={styles.finishButtonText}>Finish & Generate PDF</Text>
             )}
           </TouchableOpacity>
         </View>
