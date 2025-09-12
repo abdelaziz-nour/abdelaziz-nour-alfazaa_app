@@ -7,7 +7,7 @@ class PrinterService {
   private isConnected: boolean = false;
   
   // Google Apps Script endpoint URL
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyYp9s8filgDVOOkHIZ2ehcxa-KO4XpEl6uV2zo04FMVH0m-3VfdYxljvXlccAsYQcleg/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyX9VwDsNB8VfOC0mPoE4xURdbIC5BqR9fN4-o_OzoEWHsZXbskbRJxZzDpxbzN83nviw/exec';
 
   async initializePrinter(): Promise<boolean> {
     try {
@@ -138,7 +138,7 @@ class PrinterService {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `fileName=${encodeURIComponent(fileName)}&rawHtml=${encodeURIComponent(htmlContent)}&convertToPdf=true&mimeType=application/pdf`
+        body: `fileName=${encodeURIComponent(fileName)}&rawHtml=${encodeURIComponent(htmlContent)}&convertToPdf=true&mimeType=application/pdf&rootFolderId=1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM`
       });
       
       return await this.handleGoogleDriveResponse(response);
