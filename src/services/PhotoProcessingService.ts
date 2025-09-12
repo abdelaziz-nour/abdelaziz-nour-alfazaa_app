@@ -83,8 +83,17 @@ class PhotoProcessingService {
    */
   private async processImage(uri: string, fileName: string): Promise<PhotoRecord | null> {
     try {
+      console.log(`Processing image: ${uri}`);
+      
+      // Check if file exists
+      const fileExists = await RNFS.exists(uri);
+      if (!fileExists) {
+        throw new Error(`Source file not found: ${uri}`);
+      }
+      
       // Get file info
       const fileInfo = await RNFS.stat(uri);
+      console.log(`Original file size: ${fileInfo.size} bytes`);
 
       // Check file size
       if (fileInfo.size > this.MAX_FILE_SIZE) {
@@ -99,6 +108,8 @@ class PhotoProcessingService {
       const processedUri = `${RNFS.CachesDirectoryPath}/processed_${id}.jpg`;
       const thumbnailUri = `${RNFS.CachesDirectoryPath}/thumb_${id}.jpg`;
 
+      console.log(`Processing to: ${processedUri}`);
+
       // Process image (resize, compress, fix orientation)
       const processedImage = await this.resizeAndCompressImage(uri, processedUri);
 
@@ -110,6 +121,7 @@ class PhotoProcessingService {
 
       // Get processed file info
       const processedFileInfo = await RNFS.stat(processedUri);
+      console.log(`Processed file size: ${processedFileInfo.size} bytes`);
 
       // Create PhotoRecord
       const photoRecord: PhotoRecord = {
@@ -129,6 +141,13 @@ class PhotoProcessingService {
         orientation: processedImage.orientation,
       };
 
+      console.log(`Photo record created:`, {
+        id: photoRecord.id,
+        uri: photoRecord.uri,
+        size: photoRecord.size,
+        fileName: photoRecord.fileName
+      });
+
       return photoRecord;
     } catch (error) {
       console.error('Error processing image:', error);
@@ -144,11 +163,32 @@ class PhotoProcessingService {
     outputUri: string,
   ): Promise<{width: number; height: number; orientation: number}> {
     try {
-      // For now, use the image picker's built-in compression
-      // Copy file to output location
+      console.log(`Resizing image from ${sourceUri} to ${outputUri}`);
+      
+      // Check if source file exists
+      const sourceExists = await RNFS.exists(sourceUri);
+      if (!sourceExists) {
+        throw new Error(`Source file not found: ${sourceUri}`);
+      }
+      
+      // Get source file info
+      const sourceInfo = await RNFS.stat(sourceUri);
+      console.log(`Source file size: ${sourceInfo.size} bytes`);
+      
+      // For now, just copy the file (in production, use proper image processing)
+      // The image picker already handles compression based on our quality settings
       await RNFS.copyFile(sourceUri, outputUri);
-
-      // Return placeholder dimensions (in production, use proper image library)
+      
+      // Verify the copy worked
+      const outputExists = await RNFS.exists(outputUri);
+      if (!outputExists) {
+        throw new Error('Failed to create output file');
+      }
+      
+      const outputInfo = await RNFS.stat(outputUri);
+      console.log(`Output file size: ${outputInfo.size} bytes`);
+      
+      // Return reasonable dimensions (in production, get actual dimensions)
       return {
         width: 1920,
         height: 1080,
@@ -156,13 +196,7 @@ class PhotoProcessingService {
       };
     } catch (error) {
       console.error('Error processing image:', error);
-      // Fallback: copy original file
-      await RNFS.copyFile(sourceUri, outputUri);
-      return {
-        width: 1920,
-        height: 1080,
-        orientation: 1,
-      };
+      throw error; // Re-throw to be handled by caller
     }
   }
 

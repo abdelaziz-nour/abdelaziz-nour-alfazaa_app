@@ -270,11 +270,40 @@ class UploadQueueService {
    */
   private async uploadPhotoToGoogleDrive(job: UploadJob, photo: PhotoRecord): Promise<void> {
     try {
+      console.log(`Starting upload for photo ${photo.id}`);
+      console.log(`Photo URI: ${photo.uri}`);
+      
+      // Check if file exists
+      const fileExists = await RNFS.exists(photo.uri);
+      console.log(`Photo file exists: ${fileExists}`);
+      
+      if (!fileExists) {
+        throw new Error(`Photo file not found at: ${photo.uri}`);
+      }
+      
+      // Get file info
+      const fileInfo = await RNFS.stat(photo.uri);
+      console.log(`Photo file size: ${fileInfo.size} bytes`);
+      
+      if (fileInfo.size === 0) {
+        throw new Error('Photo file is empty');
+      }
+      
       // Read photo file as base64
+      console.log(`Reading file as base64...`);
       const fileData = await RNFS.readFile(photo.uri, 'base64');
+      
+      if (!fileData || fileData.length === 0) {
+        throw new Error('Failed to read photo file or file is empty');
+      }
+      
+      console.log(`File data length: ${fileData.length} characters`);
       
       // Generate filename for upload
       const fileName = this.generatePhotoFileName(photo, job.intakeId);
+      
+      console.log(`Uploading photo ${photo.id} with filename: ${fileName}`);
+      console.log(`MIME type: ${photo.mimeType}`);
       
       // Create URL-encoded form data for upload (Google Apps Script expects this format)
       const formData = new URLSearchParams();
@@ -284,8 +313,8 @@ class UploadQueueService {
       formData.append('rootFolderId', '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM'); // Same folder as PDF
       formData.append('isPhoto', 'true'); // Flag to indicate this is a photo upload
       
-      console.log(`Uploading photo ${photo.id} with filename: ${fileName}`);
-      console.log(`File data length: ${fileData.length} characters`);
+      console.log(`Form data prepared, sending request...`);
+      console.log(`Form data size: ${formData.toString().length} characters`);
       
       // Upload to Google Drive
       const response = await fetch(this.GOOGLE_APPS_SCRIPT_URL, {
@@ -296,11 +325,16 @@ class UploadQueueService {
         body: formData
       });
       
+      console.log(`Response status: ${response.status}`);
+      
       if (!response.ok) {
+        const errorText = await response.text();
+        console.error(`HTTP error response: ${errorText}`);
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
       
       const result = await response.json();
+      console.log(`Upload response:`, result);
       
       if (!result.success) {
         throw new Error(result.error || 'Upload failed');
