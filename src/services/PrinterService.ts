@@ -422,6 +422,10 @@ class PrinterService {
                 <span class="label">Intake ID:</span>
                 <span class="value">${intakeData.id}</span>
               </div>
+              <div class="info-row">
+                <span class="label">Price:</span>
+                <span class="value">$${intakeData.price}</span>
+              </div>
             </div>
             
             <div class="section">

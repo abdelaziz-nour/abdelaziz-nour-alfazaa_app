@@ -24,7 +24,8 @@ interface FormErrors {
   customerPhone?: string;
   vehiclePlate?: string;
   vehicleColor?: string;
-  vehicleType?: string; // Add this line
+  vehicleType?: string;
+  price?: string;
 }
 
 export default function IntakeFormScreen({navigation}: IntakeFormScreenProps) {
@@ -49,6 +50,11 @@ export default function IntakeFormScreen({navigation}: IntakeFormScreenProps) {
       newErrors.vehiclePlate = 'Vehicle plate is required';
     if (!state.vehicleColor.trim())
       newErrors.vehicleColor = 'Vehicle color is required';
+    if (!state.price.trim())
+      newErrors.price = 'Price is required';
+    else if (!/^\d+(\.\d{1,2})?$/.test(state.price)) {
+      newErrors.price = 'Invalid price format (e.g., 100 or 100.50)';
+    }
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -182,6 +188,20 @@ export default function IntakeFormScreen({navigation}: IntakeFormScreenProps) {
                 ))}
               </Picker>
             </View>
+          </View>
+
+          <View style={styles.inputGroup}>
+            <Text style={styles.label}>Price *</Text>
+            <TextInput
+              style={[styles.input, errors.price && styles.inputError]}
+              value={state.price}
+              onChangeText={value => updateField('price', value)}
+              placeholder="Enter price (e.g., 100 or 100.50)"
+              keyboardType="numeric"
+            />
+            {errors.price && (
+              <Text style={styles.errorText}>{errors.price}</Text>
+            )}
           </View>
         </View>
 

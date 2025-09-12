@@ -19,6 +19,7 @@ export interface IntakeRecord {
   vehiclePlate: string;
   vehicleColor: string;
   vehicleType: string;
+  price: string;
   damageNotes: DamageNote[];
   generalComments: string;
   signature: string | null;

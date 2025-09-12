@@ -8,6 +8,7 @@ interface VehicleState {
   vehiclePlate: string;
   vehicleColor: string;
   vehicleType: string;
+  price: string;
   damageNotes: Array<{
     part: string;
     damage: string;
@@ -44,6 +45,7 @@ const initialState = {
   vehiclePlate: '',
   vehicleColor: '',
   vehicleType: 'Sedan',
+  price: '',
   damageNotes: [],
   generalComments: '',
   signature: null,
