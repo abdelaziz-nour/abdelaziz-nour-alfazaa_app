@@ -77,10 +77,26 @@ export default function NotesSignatureScreen({
       console.log('Converting HTML to PDF and saving to Google Drive...');
       const pdfResult = await PrinterService.convertHtmlToPdfAndSave(intakeRecord);
       
+      // Start photo uploads after PDF is generated
+      if (state.photos.length > 0) {
+        console.log(`Starting upload for ${state.photos.length} photos...`);
+        
+        // Add all photos to upload queue
+        for (const photo of state.photos) {
+          await UploadQueueService.addPhotoToQueue(photo, intakeRecord.id);
+        }
+        
+        console.log('All photos added to upload queue');
+      }
+      
       if (pdfResult.success) {
+        const photoMessage = state.photos.length > 0 
+          ? `\n📸 Photos: ${state.photos.length} queued for upload`
+          : '';
+          
         Alert.alert(
           'Success! 🎉',
-          `Vehicle intake completed successfully!\n\n📄 PDF Report: ${pdfResult.fileUrl ? 'Saved to Google Drive' : 'Generated'}\n🖨️ Receipt: Printed\n💾 Database: Saved locally`,
+          `Vehicle intake completed successfully!\n\n📄 PDF Report: ${pdfResult.fileUrl ? 'Saved to Google Drive' : 'Generated'}\n🖨️ Receipt: Printed\n💾 Database: Saved locally${photoMessage}`,
           [
             {
               text: 'New Intake',

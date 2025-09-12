@@ -199,51 +199,67 @@ class UploadQueueService {
    */
   private async uploadPhoto(job: UploadJob): Promise<void> {
     try {
+      console.log(`Starting upload for photo ${job.photoId}, job:`, job);
+      
       // Update job status
       job.status = 'uploading';
       job.lastAttempt = new Date().toISOString();
       job.attempts++;
-
+      
       await this.updateJobInDatabase(job);
-
+      
       // Notify progress
       this.notifyProgress(job.photoId, {
         photoId: job.photoId,
         progress: 0,
         status: 'uploading',
       });
-
+      
       // Get photo record (this would come from database in production)
       const photo = await this.getPhotoRecord(job.photoId);
       if (!photo) {
-        throw new Error('Photo record not found');
+        throw new Error(`Photo record not found for ID: ${job.photoId}`);
       }
-
+      
+      console.log(`Found photo record for ${job.photoId}:`, {
+        id: photo.id,
+        fileName: photo.fileName,
+        size: photo.size,
+        mimeType: photo.mimeType,
+        uri: photo.uri
+      });
+      
+      // Check if file exists
+      const fileExists = await RNFS.exists(photo.uri);
+      if (!fileExists) {
+        throw new Error(`Photo file not found at: ${photo.uri}`);
+      }
+      
       // Upload to Google Drive
       await this.uploadPhotoToGoogleDrive(job, photo);
-
+      
       // Mark as completed
       job.status = 'completed';
       await this.updateJobInDatabase(job);
-
+      
       // Remove from active uploads
       this.activeUploads.delete(job.photoId);
-
+      
       // Notify completion
       this.notifyProgress(job.photoId, {
         photoId: job.photoId,
         progress: 100,
         status: 'completed',
       });
-
+      
       // Remove from queue
       this.uploadQueue = this.uploadQueue.filter(j => j.id !== job.id);
-
+      
       console.log(`Successfully uploaded photo ${job.photoId}`);
-
+      
     } catch (error) {
       console.error(`Error uploading photo ${job.photoId}:`, error);
-
+      
       // Handle failure
       await this.handleUploadFailure(job, error);
     }
@@ -256,43 +272,46 @@ class UploadQueueService {
     try {
       // Read photo file as base64
       const fileData = await RNFS.readFile(photo.uri, 'base64');
-
+      
       // Generate filename for upload
       const fileName = this.generatePhotoFileName(photo, job.intakeId);
-
-      // Create form data for upload
-      const formData = new FormData();
+      
+      // Create URL-encoded form data for upload (Google Apps Script expects this format)
+      const formData = new URLSearchParams();
       formData.append('fileName', fileName);
       formData.append('fileData', fileData);
       formData.append('mimeType', photo.mimeType);
       formData.append('rootFolderId', '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM'); // Same folder as PDF
       formData.append('isPhoto', 'true'); // Flag to indicate this is a photo upload
-
+      
+      console.log(`Uploading photo ${photo.id} with filename: ${fileName}`);
+      console.log(`File data length: ${fileData.length} characters`);
+      
       // Upload to Google Drive
       const response = await fetch(this.GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
-        body: formData,
         headers: {
-          'Content-Type': 'multipart/form-data',
+          'Content-Type': 'application/x-www-form-urlencoded',
         },
+        body: formData
       });
-
+      
       if (!response.ok) {
         throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-
+      
       const result = await response.json();
-
+      
       if (!result.success) {
         throw new Error(result.error || 'Upload failed');
       }
-
+      
       // Update photo record with Drive file ID
       photo.driveFileId = result.fileId;
       photo.status = 'uploaded';
-
+      
       console.log(`Successfully uploaded photo ${photo.id} to Google Drive:`, result.fileId);
-
+      
     } catch (error) {
       console.error(`Error uploading photo ${photo.id} to Google Drive:`, error);
       throw error;

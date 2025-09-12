@@ -47,11 +47,10 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
         
-        // Store photo record for upload
+        // Store photo record for upload (but don't start upload yet)
         UploadQueueService.storePhotoRecord(processedPhoto);
         
-        // Add to upload queue
-        await UploadQueueService.addPhotoToQueue(processedPhoto, intakeId);
+        console.log('Photo captured and stored for later upload');
         
         console.log('Photo captured and added to queue');
       }
@@ -84,11 +83,10 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
         
-        // Store photo record for upload
+        // Store photo record for upload (but don't start upload yet)
         UploadQueueService.storePhotoRecord(processedPhoto);
         
-        // Add to upload queue
-        await UploadQueueService.addPhotoToQueue(processedPhoto, intakeId);
+        console.log('Photo captured and stored for later upload');
         
         console.log('Photo selected and added to queue');
       }
@@ -147,7 +145,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
   const getStatusIcon = (status: string) => {
     switch (status) {
       case 'local':
-        return '📷';
+        return '📷'; // Ready for upload
       case 'uploading':
         return '⏳';
       case 'uploaded':
@@ -178,7 +176,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
     <View style={styles.container}>
       <Text style={styles.title}>📸 Photo Documentation</Text>
       <Text style={styles.subtitle}>
-        Add photos to document vehicle condition and damage
+        Add photos to document vehicle condition and damage. Photos will be uploaded when you generate the PDF.
       </Text>
 
       {/* Photo Actions */}
