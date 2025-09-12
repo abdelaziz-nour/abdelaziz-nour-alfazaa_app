@@ -46,6 +46,7 @@ export interface UploadJob {
   attempts: number;
   maxAttempts: number;
   nextRetryAt?: string;
+  lastError?: string;
 }
 
 export interface IntakeRecord {

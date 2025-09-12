@@ -55,8 +55,20 @@ function doPost(e) {
     const yearFolder  = getOrCreateFolder_(root, yyyy);
     const monthFolder = getOrCreateFolder_(yearFolder, mm);
     
-    // Create individual intake folder (remove file extension for folder name)
-    const intakeFolderName = fileName.replace(/\.(pdf|html)$/i, '');
+    // Create individual intake folder
+    let intakeFolderName;
+    if (body.isPhoto === 'true') {
+      // For photos, extract intake ID from filename (format: photo_intakeId_photoId_...)
+      const parts = fileName.split('_');
+      if (parts.length >= 2) {
+        intakeFolderName = `intake_${parts[1]}_${Utilities.formatDate(now, tz, "yyyy-MM-dd'T'HH-mm-ss'Z'")}`;
+      } else {
+        intakeFolderName = fileName.replace(/\.(jpg|jpeg|png|gif)$/i, '');
+      }
+    } else {
+      // For PDFs/HTML, remove file extension for folder name
+      intakeFolderName = fileName.replace(/\.(pdf|html)$/i, '');
+    }
     const intakeFolder = getOrCreateFolder_(monthFolder, intakeFolderName);
 
     // -------- Build file blob --------
@@ -66,9 +78,15 @@ function doPost(e) {
     if (body.fileData) {
       // base64 → bytes → blob
       const bytes = Utilities.base64Decode(body.fileData);
-      // Infer mime if not provided (default to PDF if filename ends with .pdf)
+      // Infer mime if not provided
       if (!mimeType) {
-        mimeType = fileName.toLowerCase().endsWith('.pdf') ? 'application/pdf' : 'text/html';
+        if (body.isPhoto === 'true') {
+          mimeType = 'image/jpeg'; // Default for photos
+        } else if (fileName.toLowerCase().endsWith('.pdf')) {
+          mimeType = 'application/pdf';
+        } else {
+          mimeType = 'text/html';
+        }
       }
       blob = Utilities.newBlob(bytes, mimeType, fileName);
     } else if (body.rawHtml) {

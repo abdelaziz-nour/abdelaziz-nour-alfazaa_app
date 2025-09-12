@@ -1,5 +1,5 @@
 import {UploadJob, PhotoRecord} from '../types';
-import DatabaseService from './DatabaseService';
+import RNFS from 'react-native-fs';
 
 interface UploadProgress {
   photoId: string;
@@ -12,11 +12,13 @@ class UploadQueueService {
   private readonly MAX_CONCURRENT_UPLOADS = 2;
   private readonly MAX_RETRY_ATTEMPTS = 5;
   private readonly RETRY_DELAYS = [1000, 2000, 4000, 8000, 16000]; // Exponential backoff in ms
-  
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzs0EGZ_D4Nz4wu_h4kjIB3wan9ryVZ69B_NOlbwfDytdt-CWPGyapKSrk910iOEiIOfg/exec';
+
   private uploadQueue: UploadJob[] = [];
   private activeUploads = new Set<string>();
   private progressCallbacks = new Map<string, (progress: UploadProgress) => void>();
   private isProcessing = false;
+  private photoStore = new Map<string, PhotoRecord>();
 
   /**
    * Initialize upload queue from database
@@ -26,10 +28,10 @@ class UploadQueueService {
       // Load pending uploads from database
       const pendingJobs = await this.getPendingJobs();
       this.uploadQueue = pendingJobs;
-      
+
       // Start processing queue
       this.processQueue();
-      
+
       console.log(`Upload queue initialized with ${pendingJobs.length} pending jobs`);
     } catch (error) {
       console.error('Error initializing upload queue:', error);
@@ -54,15 +56,15 @@ class UploadQueueService {
 
       // Add to queue
       this.uploadQueue.push(job);
-      
+
       // Save to database
       await this.saveJobToDatabase(job);
-      
+
       // Start processing if not already running
       if (!this.isProcessing) {
         this.processQueue();
       }
-      
+
       console.log(`Added photo ${photo.id} to upload queue`);
     } catch (error) {
       console.error('Error adding photo to queue:', error);
@@ -76,15 +78,15 @@ class UploadQueueService {
     try {
       // Remove from memory queue
       this.uploadQueue = this.uploadQueue.filter(job => job.photoId !== photoId);
-      
+
       // Remove from database
       await this.removeJobFromDatabase(photoId);
-      
+
       // Cancel active upload if running
       if (this.activeUploads.has(photoId)) {
         this.activeUploads.delete(photoId);
       }
-      
+
       console.log(`Removed photo ${photoId} from upload queue`);
     } catch (error) {
       console.error('Error removing photo from queue:', error);
@@ -101,13 +103,13 @@ class UploadQueueService {
         job.status = 'pending';
         job.attempts = 0;
         job.nextRetryAt = undefined;
-        
+
         // Update database
         await this.updateJobInDatabase(job);
-        
+
         // Start processing
         this.processQueue();
-        
+
         console.log(`Retrying upload for photo ${photoId}`);
       }
     } catch (error) {
@@ -120,7 +122,9 @@ class UploadQueueService {
    */
   getUploadProgress(photoId: string): UploadProgress | null {
     const job = this.uploadQueue.find(j => j.photoId === photoId);
-    if (!job) return null;
+    if (!job) {
+      return null;
+    }
 
     return {
       photoId,
@@ -135,7 +139,7 @@ class UploadQueueService {
    */
   subscribeToProgress(photoId: string, callback: (progress: UploadProgress) => void): () => void {
     this.progressCallbacks.set(photoId, callback);
-    
+
     // Return unsubscribe function
     return () => {
       this.progressCallbacks.delete(photoId);
@@ -146,20 +150,24 @@ class UploadQueueService {
    * Process upload queue
    */
   private async processQueue(): Promise<void> {
-    if (this.isProcessing) return;
-    
+    if (this.isProcessing) {
+      return;
+    }
+
     this.isProcessing = true;
-    
+
     try {
       while (this.uploadQueue.length > 0 && this.activeUploads.size < this.MAX_CONCURRENT_UPLOADS) {
         const job = this.getNextJob();
-        if (!job) break;
-        
+        if (!job) {
+          break;
+        }
+
         // Check if job is ready for retry
         if (job.nextRetryAt && new Date(job.nextRetryAt) > new Date()) {
           break;
         }
-        
+
         // Start upload
         this.activeUploads.add(job.photoId);
         this.uploadPhoto(job);
@@ -182,7 +190,7 @@ class UploadQueueService {
         }
         return new Date(a.createdAt).getTime() - new Date(b.createdAt).getTime();
       });
-    
+
     return sortedJobs[0] || null;
   }
 
@@ -195,78 +203,130 @@ class UploadQueueService {
       job.status = 'uploading';
       job.lastAttempt = new Date().toISOString();
       job.attempts++;
-      
+
       await this.updateJobInDatabase(job);
-      
+
       // Notify progress
       this.notifyProgress(job.photoId, {
         photoId: job.photoId,
         progress: 0,
         status: 'uploading',
       });
-      
-      // TODO: Implement actual upload logic
-      // For now, simulate upload
-      await this.simulateUpload(job);
-      
+
+      // Get photo record (this would come from database in production)
+      const photo = await this.getPhotoRecord(job.photoId);
+      if (!photo) {
+        throw new Error('Photo record not found');
+      }
+
+      // Upload to Google Drive
+      await this.uploadPhotoToGoogleDrive(job, photo);
+
       // Mark as completed
       job.status = 'completed';
       await this.updateJobInDatabase(job);
-      
+
       // Remove from active uploads
       this.activeUploads.delete(job.photoId);
-      
+
       // Notify completion
       this.notifyProgress(job.photoId, {
         photoId: job.photoId,
         progress: 100,
         status: 'completed',
       });
-      
+
       // Remove from queue
       this.uploadQueue = this.uploadQueue.filter(j => j.id !== job.id);
-      
+
       console.log(`Successfully uploaded photo ${job.photoId}`);
-      
+
     } catch (error) {
       console.error(`Error uploading photo ${job.photoId}:`, error);
-      
+
       // Handle failure
       await this.handleUploadFailure(job, error);
     }
   }
 
   /**
-   * Simulate upload (replace with actual upload logic)
+   * Upload photo to Google Drive
    */
-  private async simulateUpload(job: UploadJob): Promise<void> {
-    return new Promise((resolve, reject) => {
-      const duration = 2000 + Math.random() * 3000; // 2-5 seconds
-      let progress = 0;
-      
-      const interval = setInterval(() => {
-        progress += Math.random() * 20;
-        if (progress >= 100) {
-          progress = 100;
-          clearInterval(interval);
-          resolve();
-        }
-        
-        this.notifyProgress(job.photoId, {
-          photoId: job.photoId,
-          progress,
-          status: 'uploading',
-        });
-      }, 200);
-      
-      // Simulate occasional failures
-      if (Math.random() < 0.1) { // 10% failure rate for testing
-        setTimeout(() => {
-          clearInterval(interval);
-          reject(new Error('Simulated upload failure'));
-        }, duration * 0.5);
+  private async uploadPhotoToGoogleDrive(job: UploadJob, photo: PhotoRecord): Promise<void> {
+    try {
+      // Read photo file as base64
+      const fileData = await RNFS.readFile(photo.uri, 'base64');
+
+      // Generate filename for upload
+      const fileName = this.generatePhotoFileName(photo, job.intakeId);
+
+      // Create form data for upload
+      const formData = new FormData();
+      formData.append('fileName', fileName);
+      formData.append('fileData', fileData);
+      formData.append('mimeType', photo.mimeType);
+      formData.append('rootFolderId', '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM'); // Same folder as PDF
+      formData.append('isPhoto', 'true'); // Flag to indicate this is a photo upload
+
+      // Upload to Google Drive
+      const response = await fetch(this.GOOGLE_APPS_SCRIPT_URL, {
+        method: 'POST',
+        body: formData,
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error(`HTTP ${response.status}: ${response.statusText}`);
       }
-    });
+
+      const result = await response.json();
+
+      if (!result.success) {
+        throw new Error(result.error || 'Upload failed');
+      }
+
+      // Update photo record with Drive file ID
+      photo.driveFileId = result.fileId;
+      photo.status = 'uploaded';
+
+      console.log(`Successfully uploaded photo ${photo.id} to Google Drive:`, result.fileId);
+
+    } catch (error) {
+      console.error(`Error uploading photo ${photo.id} to Google Drive:`, error);
+      throw error;
+    }
+  }
+
+  /**
+   * Generate filename for photo upload
+   */
+  private generatePhotoFileName(photo: PhotoRecord, intakeId: string): string {
+    const timestamp = new Date().toISOString().replace(/[:.]/g, '-').slice(0, 19);
+    const partSuffix = photo.damagePart ? `_${photo.damagePart.replace(/\s+/g, '_')}` : '';
+    return `photo_${intakeId}_${photo.id}${partSuffix}_${timestamp}.jpg`;
+  }
+
+  /**
+   * Store photo record for upload
+   */
+  storePhotoRecord(photo: PhotoRecord): void {
+    this.photoStore.set(photo.id, photo);
+    console.log(`Stored photo record for ID: ${photo.id}`);
+  }
+
+  /**
+   * Get photo record by ID
+   */
+  private async getPhotoRecord(photoId: string): Promise<PhotoRecord | null> {
+    const photo = this.photoStore.get(photoId);
+    if (photo) {
+      console.log(`Retrieved photo record for ID: ${photoId}`);
+      return photo;
+    }
+    console.log(`Photo record not found for ID: ${photoId}`);
+    return null;
   }
 
   /**
@@ -275,7 +335,7 @@ class UploadQueueService {
   private async handleUploadFailure(job: UploadJob, error: any): Promise<void> {
     job.status = 'failed';
     job.lastError = error.message || 'Unknown error';
-    
+
     // Check if we should retry
     if (job.attempts < job.maxAttempts) {
       const delay = this.RETRY_DELAYS[Math.min(job.attempts - 1, this.RETRY_DELAYS.length - 1)];
@@ -285,12 +345,12 @@ class UploadQueueService {
       // Max attempts reached, mark as permanently failed
       job.status = 'failed';
     }
-    
+
     await this.updateJobInDatabase(job);
-    
+
     // Remove from active uploads
     this.activeUploads.delete(job.photoId);
-    
+
     // Notify failure
     this.notifyProgress(job.photoId, {
       photoId: job.photoId,
@@ -298,7 +358,7 @@ class UploadQueueService {
       status: 'failed',
       error: job.lastError,
     });
-    
+
     // Continue processing queue
     this.processQueue();
   }
@@ -369,7 +429,7 @@ class UploadQueueService {
     const uploading = this.uploadQueue.filter(j => j.status === 'uploading').length;
     const completed = this.uploadQueue.filter(j => j.status === 'completed').length;
     const failed = this.uploadQueue.filter(j => j.status === 'failed').length;
-    
+
     return {total, pending, uploading, completed, failed};
   }
 }

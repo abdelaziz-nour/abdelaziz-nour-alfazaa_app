@@ -47,6 +47,9 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
         
+        // Store photo record for upload
+        UploadQueueService.storePhotoRecord(processedPhoto);
+        
         // Add to upload queue
         await UploadQueueService.addPhotoToQueue(processedPhoto, intakeId);
         
@@ -80,6 +83,9 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
         
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
+        
+        // Store photo record for upload
+        UploadQueueService.storePhotoRecord(processedPhoto);
         
         // Add to upload queue
         await UploadQueueService.addPhotoToQueue(processedPhoto, intakeId);
