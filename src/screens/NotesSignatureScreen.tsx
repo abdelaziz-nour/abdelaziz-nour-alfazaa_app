@@ -1,4 +1,4 @@
-import {useState} from 'react';
+import {useState, useEffect} from 'react';
 import {
   View,
   Text,
@@ -14,6 +14,8 @@ import DatabaseService from '../services/DatabaseService';
 import {RootStackParamList} from '../types';
 import {NativeStackNavigationProp} from 'react-native-screens/lib/typescript/native-stack/types';
 import PrinterService from '../services/PrinterService';
+import PhotoCapture from '../components/PhotoCapture';
+import UploadQueueService from '../services/UploadQueueService';
 
 interface NotesSignatureScreenProps {
   navigation: NativeStackNavigationProp<RootStackParamList, 'NotesSignature'>;
@@ -24,8 +26,34 @@ export default function NotesSignatureScreen({
 }: NotesSignatureScreenProps) {
   const {state, dispatch} = useVehicle();
   const [isLoading, setIsLoading] = useState(false);
+  const [_uploadProgress, setUploadProgress] = useState<{[key: string]: number}>({});
 
-  // Remove all signature-related state and handlers
+  // Initialize upload queue on component mount
+  useEffect(() => {
+    UploadQueueService.initialize();
+  }, []);
+
+  // Update upload progress for photos
+  useEffect(() => {
+    const unsubscribeFunctions: (() => void)[] = [];
+
+    state.photos.forEach(photo => {
+      const unsubscribe = UploadQueueService.subscribeToProgress(
+        photo.id,
+        (progress) => {
+          setUploadProgress(prev => ({
+            ...prev,
+            [photo.id]: progress.progress,
+          }));
+        }
+      );
+      unsubscribeFunctions.push(unsubscribe);
+    });
+
+    return () => {
+      unsubscribeFunctions.forEach(unsubscribe => unsubscribe());
+    };
+  }, [state.photos]);
 
   const handleFinishAndPrint = async () => {
     console.log('handleFinishAndPrint called');
@@ -85,7 +113,7 @@ export default function NotesSignatureScreen({
     } catch (error) {
       console.error('Error completing intake:', error);
       Alert.alert(
-        'Error ❌', 
+        'Error ❌',
         `Failed to complete intake: ${error instanceof Error ? error.message : 'Unknown error'}\n\nPlease try again.`
       );
     } finally {
@@ -112,6 +140,12 @@ export default function NotesSignatureScreen({
             <Text style={styles.noDamageText}>No damage noted</Text>
           )}
         </View>
+
+        {/* Photo Capture */}
+        <PhotoCapture
+          intakeId={state.timestamp || Date.now().toString()}
+          vehiclePlate={state.vehiclePlate}
+        />
 
         {/* General Comments */}
         <View style={styles.section}>
