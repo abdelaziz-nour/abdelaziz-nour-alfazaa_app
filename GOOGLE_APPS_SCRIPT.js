@@ -54,6 +54,10 @@ function doPost(e) {
     // Ensure year/month folders
     const yearFolder  = getOrCreateFolder_(root, yyyy);
     const monthFolder = getOrCreateFolder_(yearFolder, mm);
+    
+    // Create individual intake folder (remove file extension for folder name)
+    const intakeFolderName = fileName.replace(/\.(pdf|html)$/i, '');
+    const intakeFolder = getOrCreateFolder_(monthFolder, intakeFolderName);
 
     // -------- Build file blob --------
     let mimeType = (body.mimeType || '').trim();
@@ -82,14 +86,15 @@ function doPost(e) {
     }
 
     // -------- Create file in Drive --------
-    const file = monthFolder.createFile(blob);
+    const file = intakeFolder.createFile(blob);
 
     // -------- Respond JSON --------
     const res = {
       success: true,
       fileId: file.getId(),
       fileUrl: file.getUrl(),
-      folderPath: `${yyyy}/${mm}`,
+      folderPath: `${yyyy}/${mm}/${intakeFolderName}`,
+      folderName: intakeFolderName,
       name: file.getName(),
       mimeType: blob.getContentType(),
     };

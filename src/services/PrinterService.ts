@@ -5,9 +5,8 @@ import {IntakeRecord} from '../types';
 class PrinterService {
   private printer: Printer | null = null;
   private isConnected: boolean = false;
-  
   // Google Apps Script endpoint URL
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyX9VwDsNB8VfOC0mPoE4xURdbIC5BqR9fN4-o_OzoEWHsZXbskbRJxZzDpxbzN83nviw/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzXRaHeo54i8s5_2R-meOXyHNem0hCWsj1doBKbGl5c8qmchQplSeLXz4fiOYg7Tbt9Yw/exec';
 
   async initializePrinter(): Promise<boolean> {
     try {
@@ -238,6 +237,89 @@ class PrinterService {
     }
   }
 
+  private generateVehicleDiagramSVG(intakeData: IntakeRecord): string {
+    // Vehicle parts data (matching VehicleDiagram.tsx)
+    const vehicleParts = [
+      // Front section
+      {name: 'Front Bumper', x: 110, y: 40, width: 100, height: 25},
+      {name: 'Hood', x: 110, y: 65, width: 100, height: 70},
+      {name: 'Windshield', x: 110, y: 135, width: 100, height: 40},
+      // Roof section
+      {name: 'Roof', x: 110, y: 175, width: 100, height: 90},
+      // Doors - Left side
+      {name: 'Front Left Door', x: 40, y: 175, width: 70, height: 45},
+      {name: 'Rear Left Door', x: 40, y: 220, width: 70, height: 45},
+      // Doors - Right side
+      {name: 'Front Right Door', x: 210, y: 175, width: 70, height: 45},
+      {name: 'Rear Right Door', x: 210, y: 220, width: 70, height: 45},
+      // Fenders
+      {name: 'Front Left Fender', x: 40, y: 105, width: 70, height: 70},
+      {name: 'Front Right Fender', x: 210, y: 105, width: 70, height: 70},
+      {name: 'Rear Left Fender', x: 40, y: 265, width: 70, height: 70},
+      {name: 'Rear Right Fender', x: 210, y: 265, width: 70, height: 70},
+      // Rear section
+      {name: 'Trunk', x: 110, y: 265, width: 100, height: 70},
+      {name: 'Rear Bumper', x: 110, y: 335, width: 100, height: 25},
+      // Tires
+      {name: 'Left Front Tire', x: 0, y: 125, width: 40, height: 40},
+      {name: 'Right Front Tire', x: 280, y: 125, width: 40, height: 40},
+      {name: 'Left Rear Tire', x: 0, y: 285, width: 40, height: 40},
+      {name: 'Right Rear Tire', x: 280, y: 285, width: 40, height: 40},
+    ];
+
+    // Check if part has damage
+    const hasDamage = (partName: string): boolean => {
+      return intakeData.damageNotes?.some(note => note.part === partName) || false;
+    };
+
+    // Generate SVG rectangles for each part
+    const partElements = vehicleParts.map(part => {
+      const isDamaged = hasDamage(part.name);
+      const fillColor = isDamaged ? '#ff0000' : '#e3f2fd'; // Using pure red for damaged parts
+      const strokeColor = isDamaged ? '#cc0000' : '#2196F3'; // Darker red border for damaged parts
+      const textColor = isDamaged ? '#ffffff' : '#333'; // White text on red background
+
+      return `
+        <rect
+          x="${part.x}"
+          y="${part.y}"
+          width="${part.width}"
+          height="${part.height}"
+          fill="${fillColor}"
+          stroke="${strokeColor}"
+          stroke-width="2"
+          rx="8"
+        />
+        <text
+          x="${part.x + part.width / 2}"
+          y="${part.y + part.height / 2}"
+          text-anchor="middle"
+          dominant-baseline="middle"
+          font-size="10"
+          font-weight="500"
+          fill="${textColor}"
+        >
+          ${part.name}
+        </text>
+      `;
+    }).join('');
+
+    return `
+      <div style="text-align: center; margin: 20px 0;">
+        <h3 style="margin-bottom: 15px; color: #333;">Vehicle Top View</h3>
+        <svg width="320" height="400" viewBox="0 0 320 400" style="border: 2px solid #dee2e6; border-radius: 10px; background-color: #f8f9fa;">
+          ${partElements}
+        </svg>
+        <div style="margin-top: 10px; font-size: 12px; color: #666;">
+          <span style="display: inline-block; width: 15px; height: 15px; background-color: #e3f2fd; border: 2px solid #2196F3; border-radius: 3px; margin-right: 5px; vertical-align: middle;"></span>
+          Normal
+          <span style="display: inline-block; width: 15px; height: 15px; background-color: #ff0000; border: 2px solid #cc0000; border-radius: 3px; margin: 0 5px 0 15px; vertical-align: middle;"></span>
+          Damaged
+        </div>
+      </div>
+    `;
+  }
+
   private generateHTMLContent(intakeData: IntakeRecord): string {
     return `
       <html>
@@ -380,6 +462,11 @@ class PrinterService {
                 <span class="label">Color:</span>
                 <span class="value">${intakeData.vehicleColor}</span>
               </div>
+            </div>
+            
+            <div class="section">
+              <div class="section-title">🚗 VEHICLE DIAGRAM</div>
+              ${this.generateVehicleDiagramSVG(intakeData)}
             </div>
             
             ${
