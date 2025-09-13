@@ -10,12 +10,12 @@ import {
   ScrollView,
   Modal,
   Platform,
+  PermissionsAndroid,
 } from 'react-native';
 import {useVehicle} from '../context/VehicleContext';
 import PhotoProcessingService from '../services/PhotoProcessingService';
 import UploadQueueService from '../services/UploadQueueService';
 import {PhotoRecord} from '../types';
-import {request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
 interface PhotoCaptureProps {
   intakeId: string;
@@ -30,28 +30,31 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
 
   const requestCameraPermission = async (): Promise<boolean> => {
     try {
-      const permission = Platform.OS === 'android' 
-        ? PERMISSIONS.ANDROID.CAMERA 
-        : PERMISSIONS.IOS.CAMERA;
-      
-      const result = await request(permission);
-      
-      if (result === RESULTS.GRANTED) {
-        return true;
-      } else if (result === RESULTS.DENIED) {
-        Alert.alert(
-          'Camera Permission Required',
-          'Please grant camera permission to take photos.',
-          [{text: 'OK'}]
+      if (Platform.OS === 'android') {
+        const granted = await PermissionsAndroid.request(
+          PermissionsAndroid.PERMISSIONS.CAMERA,
+          {
+            title: 'Camera Permission',
+            message: 'This app needs access to camera to take photos.',
+            buttonNeutral: 'Ask Me Later',
+            buttonNegative: 'Cancel',
+            buttonPositive: 'OK',
+          }
         );
-        return false;
+
+        if (granted === PermissionsAndroid.RESULTS.GRANTED) {
+          return true;
+        } else {
+          Alert.alert(
+            'Camera Permission Denied',
+            'Camera permission is required to take photos. Please enable it in settings.',
+            [{text: 'OK'}]
+          );
+          return false;
+        }
       } else {
-        Alert.alert(
-          'Camera Permission Denied',
-          'Camera permission is required to take photos. Please enable it in settings.',
-          [{text: 'OK'}]
-        );
-        return false;
+        // iOS - permissions are handled by the image picker itself
+        return true;
       }
     } catch (error) {
       console.error('Error requesting camera permission:', error);
@@ -62,15 +65,15 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
   const handleCapturePhoto = async () => {
     try {
       setIsProcessing(true);
-      
+
       // Request camera permission first
       const hasPermission = await requestCameraPermission();
       if (!hasPermission) {
         return;
       }
-      
+
       const photo = await PhotoProcessingService.capturePhoto();
-      
+
       if (photo) {
         // Generate upload filename
         const uploadFileName = PhotoProcessingService.generateUploadFileName(
@@ -78,20 +81,20 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
           vehiclePlate,
           state.photos.length,
         );
-        
+
         const processedPhoto = {
           ...photo,
           fileName: uploadFileName,
         };
-        
+
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
-        
+
         // Store photo record for upload (but don't start upload yet)
         UploadQueueService.storePhotoRecord(processedPhoto);
-        
+
         console.log('Photo captured and stored for later upload');
-        
+
         console.log('Photo captured and added to queue');
       }
     } catch (error) {
@@ -106,7 +109,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
     try {
       setIsProcessing(true);
       const photo = await PhotoProcessingService.selectFromLibrary();
-      
+
       if (photo) {
         // Generate upload filename
         const uploadFileName = PhotoProcessingService.generateUploadFileName(
@@ -114,20 +117,20 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
           vehiclePlate,
           state.photos.length,
         );
-        
+
         const processedPhoto = {
           ...photo,
           fileName: uploadFileName,
         };
-        
+
         // Add to context
         dispatch({type: 'ADD_PHOTO', photo: processedPhoto});
-        
+
         // Store photo record for upload (but don't start upload yet)
         UploadQueueService.storePhotoRecord(processedPhoto);
-        
+
         console.log('Photo captured and stored for later upload');
-        
+
         console.log('Photo selected and added to queue');
       }
     } catch (error) {
@@ -150,10 +153,10 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
           onPress: async () => {
             // Remove from context
             dispatch({type: 'REMOVE_PHOTO', photoId});
-            
+
             // Remove from upload queue
             await UploadQueueService.removePhotoFromQueue(photoId);
-            
+
             console.log('Photo removed');
           },
         },
@@ -197,20 +200,6 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
     }
   };
 
-  const getStatusColor = (status: string) => {
-    switch (status) {
-      case 'local':
-        return '#2196F3';
-      case 'uploading':
-        return '#FF9800';
-      case 'uploaded':
-        return '#4CAF50';
-      case 'failed':
-        return '#F44336';
-      default:
-        return '#2196F3';
-    }
-  };
 
   return (
     <View style={styles.container}>
@@ -249,9 +238,9 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {state.photos.map((photo, index) => (
               <View key={photo.id} style={styles.photoItem}>
-                <Image 
-                  source={{uri: photo.displayUri || `file://${photo.uri}`}} 
-                  style={styles.photoThumbnail} 
+                <Image
+                  source={{uri: (photo as any).displayUri || `file://${photo.uri}`}}
+                  style={styles.photoThumbnail}
                 />
                 <View style={styles.photoInfo}>
                   <Text style={styles.photoIndex}>#{index + 1}</Text>
@@ -299,7 +288,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
             <Text style={styles.modalSubtitle}>
               Select the vehicle part this photo documents
             </Text>
-            
+
             <ScrollView style={styles.damagePartsList}>
               {state.damageNotes.map((note, index) => (
                 <TouchableOpacity
@@ -310,7 +299,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
                   <Text style={styles.damageTypeText}>{note.damage}</Text>
                 </TouchableOpacity>
               ))}
-              
+
               <TouchableOpacity
                 style={styles.damagePartItem}
                 onPress={() => handleDamagePartSelect('General')}>
@@ -318,7 +307,7 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
                 <Text style={styles.damageTypeText}>Overall vehicle condition</Text>
               </TouchableOpacity>
             </ScrollView>
-            
+
             <TouchableOpacity
               style={styles.modalCloseButton}
               onPress={() => setShowModal(false)}>
