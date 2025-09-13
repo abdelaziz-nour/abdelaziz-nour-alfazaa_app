@@ -9,11 +9,13 @@ import {
   ActivityIndicator,
   ScrollView,
   Modal,
+  Platform,
 } from 'react-native';
 import {useVehicle} from '../context/VehicleContext';
 import PhotoProcessingService from '../services/PhotoProcessingService';
 import UploadQueueService from '../services/UploadQueueService';
 import {PhotoRecord} from '../types';
+import {request, PERMISSIONS, RESULTS} from 'react-native-permissions';
 
 interface PhotoCaptureProps {
   intakeId: string;
@@ -26,9 +28,47 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
   const [selectedPhoto, setSelectedPhoto] = useState<PhotoRecord | null>(null);
   const [showModal, setShowModal] = useState(false);
 
+  const requestCameraPermission = async (): Promise<boolean> => {
+    try {
+      const permission = Platform.OS === 'android' 
+        ? PERMISSIONS.ANDROID.CAMERA 
+        : PERMISSIONS.IOS.CAMERA;
+      
+      const result = await request(permission);
+      
+      if (result === RESULTS.GRANTED) {
+        return true;
+      } else if (result === RESULTS.DENIED) {
+        Alert.alert(
+          'Camera Permission Required',
+          'Please grant camera permission to take photos.',
+          [{text: 'OK'}]
+        );
+        return false;
+      } else {
+        Alert.alert(
+          'Camera Permission Denied',
+          'Camera permission is required to take photos. Please enable it in settings.',
+          [{text: 'OK'}]
+        );
+        return false;
+      }
+    } catch (error) {
+      console.error('Error requesting camera permission:', error);
+      return false;
+    }
+  };
+
   const handleCapturePhoto = async () => {
     try {
       setIsProcessing(true);
+      
+      // Request camera permission first
+      const hasPermission = await requestCameraPermission();
+      if (!hasPermission) {
+        return;
+      }
+      
       const photo = await PhotoProcessingService.capturePhoto();
       
       if (photo) {
@@ -209,7 +249,10 @@ const PhotoCapture: React.FC<PhotoCaptureProps> = ({intakeId, vehiclePlate}) => 
           <ScrollView horizontal showsHorizontalScrollIndicator={false}>
             {state.photos.map((photo, index) => (
               <View key={photo.id} style={styles.photoItem}>
-                <Image source={{uri: photo.uri}} style={styles.photoThumbnail} />
+                <Image 
+                  source={{uri: photo.displayUri || `file://${photo.uri}`}} 
+                  style={styles.photoThumbnail} 
+                />
                 <View style={styles.photoInfo}>
                   <Text style={styles.photoIndex}>#{index + 1}</Text>
                   <Text style={styles.photoStatus}>

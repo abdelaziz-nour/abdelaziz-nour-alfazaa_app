@@ -12,7 +12,7 @@ class UploadQueueService {
   private readonly MAX_CONCURRENT_UPLOADS = 2;
   private readonly MAX_RETRY_ATTEMPTS = 5;
   private readonly RETRY_DELAYS = [1000, 2000, 4000, 8000, 16000]; // Exponential backoff in ms
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzs0EGZ_D4Nz4wu_h4kjIB3wan9ryVZ69B_NOlbwfDytdt-CWPGyapKSrk910iOEiIOfg/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpefvUCYQo0TvdUHncxV39RiTx_Gg-5DsP95QqbvhMNvfa9Tm-zoqG-oJhu_IGR-1ppA/exec';
 
   private uploadQueue: UploadJob[] = [];
   private activeUploads = new Set<string>();
@@ -305,24 +305,26 @@ class UploadQueueService {
       console.log(`Uploading photo ${photo.id} with filename: ${fileName}`);
       console.log(`MIME type: ${photo.mimeType}`);
       
-      // Create URL-encoded form data for upload (Google Apps Script expects this format)
-      const formData = new URLSearchParams();
-      formData.append('fileName', fileName);
-      formData.append('fileData', fileData);
-      formData.append('mimeType', photo.mimeType);
-      formData.append('rootFolderId', '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM'); // Same folder as PDF
-      formData.append('isPhoto', 'true'); // Flag to indicate this is a photo upload
+      // Create JSON payload for upload (more reliable than form-encoded in React Native)
+      const payload = {
+        fileName,
+        fileData,
+        mimeType: photo.mimeType,
+        rootFolderId: '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM', // Same folder as PDF
+        isPhoto: true, // Flag to indicate this is a photo upload
+      };
       
-      console.log(`Form data prepared, sending request...`);
-      console.log(`Form data size: ${formData.toString().length} characters`);
+      console.log(`JSON payload prepared, sending request...`);
+      console.log(`Payload size: ${JSON.stringify(payload).length} characters`);
+      console.log(`File data length: ${fileData.length} characters`);
       
       // Upload to Google Drive
       const response = await fetch(this.GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
         headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
+          'Content-Type': 'application/json',
         },
-        body: formData
+        body: JSON.stringify(payload)
       });
       
       console.log(`Response status: ${response.status}`);

@@ -16,7 +16,8 @@ function doGet() {
  *        "rawHtml": "<!doctype html>...", // alternative if not sending base64
  *        "mimeType": "application/pdf" | "text/html", // optional, inferred if missing
  *        "rootFolderId": "YOUR_DRIVE_FOLDER_ID", // optional; defaults to My Drive
- *        "convertToPdf": true // optional; only used when rawHtml is provided
+ *        "convertToPdf": true, // optional; only used when rawHtml is provided
+ *        "isPhoto": true // flag for photo uploads
  *      }
  *  - OR form-encoded body with the same field names.
  */
@@ -27,16 +28,28 @@ function doPost(e) {
     // -------- Parse body (JSON or form-urlencoded) --------
     const ct = (e.postData.type || '').toLowerCase();
     let body = {};
+    
+    console.log('Content-Type:', ct);
+    console.log('PostData contents length:', e.postData.contents ? e.postData.contents.length : 0);
+    
     if (ct.indexOf('application/json') !== -1) {
       body = JSON.parse(e.postData.contents || '{}');
+      console.log('Parsed JSON body:', Object.keys(body));
     } else if (ct.indexOf('application/x-www-form-urlencoded') !== -1) {
       body = {};
       const params = e.parameters || {};
       Object.keys(params).forEach(k => (body[k] = params[k][0]));
+      console.log('Parsed form body:', Object.keys(body));
     } else {
       // Fallback: try JSON; otherwise treat as raw HTML
-      try { body = JSON.parse(e.postData.contents || '{}'); }
-      catch { body = { rawHtml: e.postData.contents || '' }; }
+      try { 
+        body = JSON.parse(e.postData.contents || '{}'); 
+        console.log('Fallback JSON body:', Object.keys(body));
+      }
+      catch { 
+        body = { rawHtml: e.postData.contents || '' }; 
+        console.log('Fallback raw HTML body');
+      }
     }
 
     // -------- Validate inputs --------
@@ -77,10 +90,13 @@ function doPost(e) {
 
     if (body.fileData) {
       // base64 → bytes → blob
+      console.log('Processing fileData, length:', body.fileData.length);
       const bytes = Utilities.base64Decode(body.fileData);
+      console.log('Decoded bytes length:', bytes.length);
+      
       // Infer mime if not provided
       if (!mimeType) {
-        if (body.isPhoto === 'true') {
+        if (body.isPhoto === true || body.isPhoto === 'true') {
           mimeType = 'image/jpeg'; // Default for photos
         } else if (fileName.toLowerCase().endsWith('.pdf')) {
           mimeType = 'application/pdf';
@@ -88,6 +104,7 @@ function doPost(e) {
           mimeType = 'text/html';
         }
       }
+      console.log('Using MIME type:', mimeType);
       blob = Utilities.newBlob(bytes, mimeType, fileName);
     } else if (body.rawHtml) {
       if (body.convertToPdf === true || String(fileName).toLowerCase().endsWith('.pdf')) {

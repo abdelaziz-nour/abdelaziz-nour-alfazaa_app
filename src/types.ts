@@ -13,7 +13,8 @@ export interface DamageNote {
 export interface PhotoRecord {
   // Core fields
   id: string;
-  uri: string;
+  uri: string; // Raw filesystem path for RNFS operations
+  displayUri?: string; // file:// URI for Image component display
   fileName: string;
   mimeType: string;
   size: number;

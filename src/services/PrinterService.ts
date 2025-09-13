@@ -6,7 +6,7 @@ class PrinterService {
   private printer: Printer | null = null;
   private isConnected: boolean = false;
   // Google Apps Script endpoint URL
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzs0EGZ_D4Nz4wu_h4kjIB3wan9ryVZ69B_NOlbwfDytdt-CWPGyapKSrk910iOEiIOfg/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpefvUCYQo0TvdUHncxV39RiTx_Gg-5DsP95QqbvhMNvfa9Tm-zoqG-oJhu_IGR-1ppA/exec';
 
   async initializePrinter(): Promise<boolean> {
     try {
