@@ -12,7 +12,7 @@ class UploadQueueService {
   private readonly MAX_CONCURRENT_UPLOADS = 2;
   private readonly MAX_RETRY_ATTEMPTS = 5;
   private readonly RETRY_DELAYS = [1000, 2000, 4000, 8000, 16000]; // Exponential backoff in ms
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpefvUCYQo0TvdUHncxV39RiTx_Gg-5DsP95QqbvhMNvfa9Tm-zoqG-oJhu_IGR-1ppA/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzeAGW8aCFAm9zQn3E_Opx_kQAcqcSXAa7oBPVxRPYBGDmyBYB6M09Sxa_vM8yxprfmsQ/exec';
 
   private uploadQueue: UploadJob[] = [];
   private activeUploads = new Set<string>();
@@ -41,7 +41,7 @@ class UploadQueueService {
   /**
    * Add photo to upload queue
    */
-  async addPhotoToQueue(photo: PhotoRecord, intakeId: string): Promise<void> {
+  async addPhotoToQueue(photo: PhotoRecord, intakeId: string, folderId?: string): Promise<void> {
     try {
       const job: UploadJob = {
         id: `upload_${photo.id}`,
@@ -52,6 +52,7 @@ class UploadQueueService {
         createdAt: new Date().toISOString(),
         attempts: 0,
         maxAttempts: this.MAX_RETRY_ATTEMPTS,
+        folderId, // Store folder ID for use during upload
       };
 
       // Add to queue
@@ -312,6 +313,7 @@ class UploadQueueService {
         mimeType: photo.mimeType,
         rootFolderId: '1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM', // Same folder as PDF
         isPhoto: true, // Flag to indicate this is a photo upload
+        intakeFolderId: job.folderId, // Pass the specific intake folder ID
       };
       
       console.log(`JSON payload prepared, sending request...`);

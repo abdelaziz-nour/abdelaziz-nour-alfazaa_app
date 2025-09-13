@@ -81,9 +81,9 @@ export default function NotesSignatureScreen({
       if (state.photos.length > 0) {
         console.log(`Starting upload for ${state.photos.length} photos...`);
         
-        // Add all photos to upload queue
+        // Add all photos to upload queue with folder ID
         for (const photo of state.photos) {
-          await UploadQueueService.addPhotoToQueue(photo, intakeRecord.id);
+          await UploadQueueService.addPhotoToQueue(photo, intakeRecord.id, pdfResult.folderId);
         }
         
         console.log('All photos added to upload queue');

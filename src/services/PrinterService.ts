@@ -6,7 +6,7 @@ class PrinterService {
   private printer: Printer | null = null;
   private isConnected: boolean = false;
   // Google Apps Script endpoint URL
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxpefvUCYQo0TvdUHncxV39RiTx_Gg-5DsP95QqbvhMNvfa9Tm-zoqG-oJhu_IGR-1ppA/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzeAGW8aCFAm9zQn3E_Opx_kQAcqcSXAa7oBPVxRPYBGDmyBYB6M09Sxa_vM8yxprfmsQ/exec';
 
   async initializePrinter(): Promise<boolean> {
     try {
@@ -202,6 +202,7 @@ class PrinterService {
         return {
           success: true,
           fileUrl: result.fileUrl,
+          folderId: result.folderId,
         };
       } else {
         console.error('Failed to save to Google Drive:', result.error || result.message);

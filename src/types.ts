@@ -48,6 +48,7 @@ export interface UploadJob {
   maxAttempts: number;
   nextRetryAt?: string;
   lastError?: string;
+  folderId?: string; // Google Drive folder ID for this intake
 }
 
 export interface IntakeRecord {

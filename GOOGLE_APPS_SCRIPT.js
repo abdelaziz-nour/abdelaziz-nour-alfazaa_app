@@ -70,19 +70,53 @@ function doPost(e) {
     
     // Create individual intake folder
     let intakeFolderName;
-    if (body.isPhoto === 'true') {
-      // For photos, extract intake ID from filename (format: photo_intakeId_photoId_...)
-      const parts = fileName.split('_');
-      if (parts.length >= 2) {
-        intakeFolderName = `intake_${parts[1]}_${Utilities.formatDate(now, tz, "yyyy-MM-dd'T'HH-mm-ss'Z'")}`;
-      } else {
-        intakeFolderName = fileName.replace(/\.(jpg|jpeg|png|gif)$/i, '');
+    let intakeFolder;
+    
+    if (body.isPhoto === true || body.isPhoto === 'true') {
+      // For photos, try to find existing intake folder first
+      if (body.intakeFolderId) {
+        // Use provided folder ID if available
+        try {
+          intakeFolder = DriveApp.getFolderById(body.intakeFolderId);
+          intakeFolderName = intakeFolder.getName();
+        } catch (e) {
+          console.log('Invalid intakeFolderId, creating new folder');
+          intakeFolder = null;
+        }
+      }
+      
+      if (!intakeFolder) {
+        // Extract intake ID from filename (format: photo_intakeId_photoId_...)
+        const parts = fileName.split('_');
+        if (parts.length >= 2) {
+          const intakeId = parts[1];
+          // Try to find existing folder with this intake ID
+          const existingFolders = monthFolder.getFolders();
+          while (existingFolders.hasNext()) {
+            const folder = existingFolders.next();
+            if (folder.getName().includes(`intake_${intakeId}_`)) {
+              intakeFolder = folder;
+              intakeFolderName = folder.getName();
+              break;
+            }
+          }
+        }
+        
+        // If no existing folder found, create new one
+        if (!intakeFolder) {
+          if (parts.length >= 2) {
+            intakeFolderName = `intake_${parts[1]}_${Utilities.formatDate(now, tz, "yyyy-MM-dd'T'HH-mm-ss'Z'")}`;
+          } else {
+            intakeFolderName = fileName.replace(/\.(jpg|jpeg|png|gif)$/i, '');
+          }
+          intakeFolder = getOrCreateFolder_(monthFolder, intakeFolderName);
+        }
       }
     } else {
       // For PDFs/HTML, remove file extension for folder name
       intakeFolderName = fileName.replace(/\.(pdf|html)$/i, '');
+      intakeFolder = getOrCreateFolder_(monthFolder, intakeFolderName);
     }
-    const intakeFolder = getOrCreateFolder_(monthFolder, intakeFolderName);
 
     // -------- Build file blob --------
     let mimeType = (body.mimeType || '').trim();
@@ -128,6 +162,7 @@ function doPost(e) {
       success: true,
       fileId: file.getId(),
       fileUrl: file.getUrl(),
+      folderId: intakeFolder.getId(),
       folderPath: `${yyyy}/${mm}/${intakeFolderName}`,
       folderName: intakeFolderName,
       name: file.getName(),
