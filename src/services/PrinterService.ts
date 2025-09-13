@@ -5,9 +5,8 @@ import {IntakeRecord} from '../types';
 class PrinterService {
   private printer: Printer | null = null;
   private isConnected: boolean = false;
-  
   // Google Apps Script endpoint URL
-  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyYp9s8filgDVOOkHIZ2ehcxa-KO4XpEl6uV2zo04FMVH0m-3VfdYxljvXlccAsYQcleg/exec';
+  private readonly GOOGLE_APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzeAGW8aCFAm9zQn3E_Opx_kQAcqcSXAa7oBPVxRPYBGDmyBYB6M09Sxa_vM8yxprfmsQ/exec';
 
   async initializePrinter(): Promise<boolean> {
     try {
@@ -121,33 +120,33 @@ class PrinterService {
     try {
       // Generate HTML content for PDF
       const htmlContent = this.generateHTMLContent(intakeData);
-      
+
       // Create filename with timestamp and vehicle plate - use .pdf extension
       const timestamp = new Date().toISOString().slice(0, 19).replace(/[:.]/g, '-');
       const fileName = `intake_${intakeData.vehiclePlate}_${timestamp}.pdf`;
-      
-      console.log('Converting HTML to PDF and saving to Google Drive:', { 
-        fileName, 
+
+      console.log('Converting HTML to PDF and saving to Google Drive:', {
+        fileName,
         contentLength: htmlContent.length,
-        vehiclePlate: intakeData.vehiclePlate 
+        vehiclePlate: intakeData.vehiclePlate,
       });
-      
+
       // Send HTML content with convertToPdf flag for backend conversion
       const response = await fetch(this.GOOGLE_APPS_SCRIPT_URL, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
-        body: `fileName=${encodeURIComponent(fileName)}&rawHtml=${encodeURIComponent(htmlContent)}&convertToPdf=true&mimeType=application/pdf`
+        body: `fileName=${encodeURIComponent(fileName)}&rawHtml=${encodeURIComponent(htmlContent)}&convertToPdf=true&mimeType=application/pdf&rootFolderId=1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM`,
       });
-      
+
       return await this.handleGoogleDriveResponse(response);
-      
+
     } catch (error) {
       console.error('Error converting HTML to PDF and saving:', error);
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Unknown error occurred'
+        error: error instanceof Error ? error.message : 'Unknown error occurred',
       };
     }
   }
@@ -162,49 +161,31 @@ class PrinterService {
   }
 
   private convertToBase64(str: string): string {
-    // Simple base64 encoding for React Native
-    const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=';
-    let output = '';
-    
-    // Convert string to bytes
-    const bytes = new Uint8Array(str.length);
-    for (let i = 0; i < str.length; i++) {
-      bytes[i] = str.charCodeAt(i);
+    // Use built-in btoa for base64 encoding
+    try {
+      return btoa(str);
+    } catch (error) {
+      console.error('Base64 encoding error:', error);
+      return '';
     }
-    
-    let byteNum;
-    let chunk;
-    
-    for (let i = 0; i < bytes.length; i += 3) {
-      byteNum = (bytes[i] << 16) | (bytes[i + 1] << 8) | bytes[i + 2];
-      chunk = [
-        chars[(byteNum >> 18) & 0x3F],
-        chars[(byteNum >> 12) & 0x3F],
-        chars[(byteNum >> 6) & 0x3F],
-        chars[byteNum & 0x3F]
-      ];
-      output += chunk.join('');
-    }
-    
-    return output;
   }
 
   private async handleGoogleDriveResponse(response: any): Promise<{success: boolean, fileUrl?: string, error?: string}> {
     try {
       console.log('Google Drive response status:', response.status);
-      
+
       if (!response.ok) {
         const errorText = await response.text();
         console.error('HTTP error:', response.status, response.statusText, errorText);
         return {
           success: false,
-          error: `HTTP ${response.status}: ${response.statusText}`
+          error: `HTTP ${response.status}: ${response.statusText}`,
         };
       }
-      
+
       const responseText = await response.text();
       console.log('Raw response:', responseText);
-      
+
       let result: any;
       try {
         result = JSON.parse(responseText);
@@ -212,31 +193,33 @@ class PrinterService {
         console.error('Failed to parse JSON response:', parseError);
         return {
           success: false,
-          error: 'Invalid response format from server'
+          error: 'Invalid response format from server',
         };
       }
-      
+
       if (result.success) {
         console.log('Successfully saved to Google Drive:', result);
         return {
           success: true,
-          fileUrl: result.fileUrl
+          fileUrl: result.fileUrl,
+          folderId: result.folderId,
         };
       } else {
         console.error('Failed to save to Google Drive:', result.error || result.message);
         return {
           success: false,
-          error: result.error || result.message || 'Unknown error from server'
+          error: result.error || result.message || 'Unknown error from server',
         };
       }
     } catch (error) {
       console.error('Error handling Google Drive response:', error);
       return {
         success: false,
-        error: error instanceof Error ? error.message : 'Unknown error occurred'
+        error: error instanceof Error ? error.message : 'Unknown error occurred',
       };
     }
   }
+
 
   private generateHTMLContent(intakeData: IntakeRecord): string {
     return `
@@ -340,6 +323,10 @@ class PrinterService {
                 <span class="label">Intake ID:</span>
                 <span class="value">${intakeData.id}</span>
               </div>
+              <div class="info-row">
+                <span class="label">Price:</span>
+                <span class="value">$${intakeData.price}</span>
+              </div>
             </div>
             
             <div class="section">
@@ -381,6 +368,7 @@ class PrinterService {
                 <span class="value">${intakeData.vehicleColor}</span>
               </div>
             </div>
+            
             
             ${
               intakeData.damageNotes?.length > 0

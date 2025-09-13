@@ -1,97 +1,275 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# Alfazaa Mobile - Vehicle Intake Management System
 
-# Getting Started
+A comprehensive React Native mobile application for vehicle intake management with automated PDF generation and Google Drive integration.
 
-> **Note**: Make sure you have completed the [Set Up Your Environment](https://reactnative.dev/docs/set-up-your-environment) guide before proceeding.
+## 🚀 Overview
 
-## Step 1: Start Metro
+The Alfazaa Mobile app streamlines the vehicle intake process by allowing users to:
+- Capture detailed vehicle information
+- Document damage with notes and timestamps
+- Generate professional PDF reports
+- Automatically upload reports to Google Drive
+- Print local receipts
+- Store data locally with SQLite
 
-First, you will need to run **Metro**, the JavaScript build tool for React Native.
+## 📱 App Architecture
 
-To start the Metro dev server, run the following command from the root of your React Native project:
+### **Technology Stack**
+- **Frontend**: React Native 0.79.2
+- **Database**: SQLite (react-native-quick-sqlite)
+- **PDF Generation**: Google Apps Script + HTML-to-PDF conversion
+- **Cloud Storage**: Google Drive API
+- **Printing**: react-native-print + react-native-esc-pos-printer
+- **State Management**: React Context API
 
-```sh
-# Using npm
-npm start
-
-# OR using Yarn
-yarn start
+### **Project Structure**
+```
+src/
+├── components/
+│   └── VehicleDiagram.tsx          # Vehicle body diagram component
+├── context/
+│   └── VehicleContext.tsx          # Global state management
+├── screens/
+│   ├── IntakeFormScreen.tsx        # Driver & customer info
+│   ├── VehicleBodyScreen.tsx       # Damage documentation
+│   └── NotesSignatureScreen.tsx    # Review & finalize
+├── services/
+│   ├── DatabaseService.ts          # SQLite operations
+│   └── PrinterService.ts           # PDF generation & Google Drive
+└── types/
+    ├── react-native-print.d.ts     # Type definitions
+    └── types.ts                    # App data models
 ```
 
-## Step 2: Build and run your app
+## 🔄 Complete Workflow
 
-With Metro running, open a new terminal window/pane from the root of your React Native project, and use one of the following commands to build and run your Android or iOS app:
-
-### Android
-
-```sh
-# Using npm
-npm run android
-
-# OR using Yarn
-yarn android
+### **1. User Journey**
+```
+Intake Form → Vehicle Body → Notes & Review → PDF Generation → Google Drive
+     ↓              ↓              ↓              ↓              ↓
+Driver Info    Damage Notes   Comments      HTML→PDF      Upload to Drive
+Customer Info   Timestamps    Review        Conversion    Organized Storage
+Vehicle Info    Visual Docs   Finalize      Professional  Year/Month Folders
 ```
 
-### iOS
-
-For iOS, remember to install CocoaPods dependencies (this only needs to be run on first clone or after updating native deps).
-
-The first time you create a new project, run the Ruby bundler to install CocoaPods itself:
-
-```sh
-bundle install
+### **2. Data Flow**
+```
+User Input → Context State → Local Database → HTML Generation → Google Apps Script → Google Drive
+     ↓              ↓              ↓              ↓              ↓              ↓
+Form Fields    Global State    SQLite Store    Professional    PDF Conversion    Organized Files
+Damage Notes   Real-time      Persistent      HTML Content    Server-side       Year/Month Structure
+Comments       Updates        Storage         Styling         Processing        File URLs
 ```
 
-Then, and every time you update your native dependencies, run:
+## 📊 Data Models
 
-```sh
-bundle exec pod install
+### **IntakeRecord Interface**
+```typescript
+interface IntakeRecord {
+  id: string;                    // Unique identifier
+  driverName: string;            // Driver's full name
+  driverId: string;              // Driver ID number
+  customerName: string;          // Customer's full name
+  customerPhone: string;         // Customer contact
+  vehiclePlate: string;          // License plate number
+  vehicleColor: string;          // Vehicle color
+  vehicleType: string;           // Car, truck, etc.
+  damageNotes: DamageNote[];     // Array of damage documentation
+  generalComments: string;       // Additional notes
+  signature: string | null;      // Digital signature (future)
+  createdAt: string;             // ISO timestamp
+  synced?: boolean;              // Sync status
+}
 ```
 
-For more information, please visit [CocoaPods Getting Started guide](https://guides.cocoapods.org/using/getting-started.html).
-
-```sh
-# Using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
+### **DamageNote Interface**
+```typescript
+interface DamageNote {
+  part: string;                  // Vehicle part name
+  damage: string;                // Damage description
+  timestamp?: string;            // When damage was recorded
+}
 ```
 
-If everything is set up correctly, you should see your new app running in the Android Emulator, iOS Simulator, or your connected device.
+## 🛠️ Core Services
 
-This is one way to run your app — you can also build it directly from Android Studio or Xcode.
+### **DatabaseService**
+- **Purpose**: Local SQLite database operations
+- **Functions**:
+  - `saveIntakeRecord()` - Store intake data locally
+  - `getIntakeRecords()` - Retrieve stored records
+  - `updateIntakeRecord()` - Modify existing records
+  - `deleteIntakeRecord()` - Remove records
 
-## Step 3: Modify your app
+### **PrinterService**
+- **Purpose**: PDF generation, printing, and Google Drive integration
+- **Key Functions**:
+  - `printReceipt()` - Print local receipt
+  - `convertHtmlToPdfAndSave()` - Generate PDF and upload to Drive
+  - `generateHTMLContent()` - Create professional HTML report
+  - `handleGoogleDriveResponse()` - Process upload responses
 
-Now that you have successfully run the app, let's make changes!
+## 🌐 Google Drive Integration
 
-Open `App.tsx` in your text editor of choice and make some changes. When you save, your app will automatically update and reflect these changes — this is powered by [Fast Refresh](https://reactnative.dev/docs/fast-refresh).
+### **Google Apps Script Endpoint**
+- **URL**: `https://script.google.com/macros/s/AKfycbyX9VwDsNB8VfOC0mPoE4xURdbIC5BqR9fN4-o_OzoEWHsZXbskbRJxZzDpxbzN83nviw/exec`
+- **Method**: POST
+- **Content-Type**: `application/x-www-form-urlencoded`
 
-When you want to forcefully reload, for example to reset the state of your app, you can perform a full reload:
+### **Request Format**
+```
+fileName=intake_ABC123_2025-01-11T10-30-00.pdf
+rawHtml=<!DOCTYPE html>...professional HTML content...
+convertToPdf=true
+mimeType=application/pdf
+rootFolderId=1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM
+```
 
-- **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Dev Menu**, accessed via <kbd>Ctrl</kbd> + <kbd>M</kbd> (Windows/Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (macOS).
-- **iOS**: Press <kbd>R</kbd> in iOS Simulator.
+### **Response Format**
+```json
+{
+  "success": true,
+  "fileId": "1ABC123...",
+  "fileUrl": "https://drive.google.com/file/d/1ABC123.../view",
+  "folderPath": "2025/01",
+  "name": "intake_ABC123_2025-01-11T10-30-00.pdf",
+  "mimeType": "application/pdf"
+}
+```
 
-## Congratulations! :tada:
+### **File Organization**
+```
+Google Drive/
+└── Your Specific Folder (1Lf83Zb6QFMvtkOa5s3iR4-cyR9RcT6UM)/
+    ├── 2025/
+    │   └── 01/
+    │       ├── intake_ABC123_2025-01-11T10-30-00.pdf
+    │       ├── intake_XYZ789_2025-01-11T11-45-00.pdf
+    │       └── ...
+    └── 2024/
+        └── 12/
+            └── ...
+```
 
-You've successfully run and modified your React Native App. :partying_face:
+## 📄 PDF Generation Process
 
-### Now what?
+### **1. HTML Content Generation**
+The app generates professional HTML content with:
+- **Company branding** (ALFAZAA COMPANY)
+- **Structured sections** with icons and styling
+- **Responsive design** optimized for PDF conversion
+- **Professional formatting** with colors and typography
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [docs](https://reactnative.dev/docs/getting-started).
+### **2. PDF Conversion**
+- **Server-side conversion** using Google Apps Script
+- **HTML to PDF** using `blob.getAs('application/pdf')`
+- **Professional formatting** preserved
+- **Optimized for printing** and digital viewing
 
-# Troubleshooting
+## 🖨️ Printing System
 
-If you're having issues getting the above steps to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
+### **Local Receipt Printing**
+- **react-native-print** for system printing
+- **Receipt-optimized HTML** with monospace font
+- **80mm width** for thermal printers
+- **Professional receipt format**
 
-# Learn More
+## 🔧 Configuration
 
-To learn more about React Native, take a look at the following resources:
+### **Google Apps Script Setup**
+1. **Create new Google Apps Script project**
+2. **Copy code from `GOOGLE_APPS_SCRIPT.js`**
+3. **Deploy as Web App**:
+   - Execute as: "Me"
+   - Who has access: "Anyone"
+4. **Copy the deployment URL**
+5. **Update `PrinterService.ts` with new URL**
 
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+### **Folder Configuration**
+- **Default**: Uploads to Google Drive root
+- **Custom Folder**: Set `rootFolderId` in request
+- **Organization**: Automatic year/month subfolders
+
+## 🚀 Getting Started
+
+### **Prerequisites**
+- Node.js 18+
+- React Native CLI
+- Android Studio (for Android)
+- Xcode (for iOS)
+- Google account for Drive integration
+
+### **Installation**
+```bash
+# Clone repository
+git clone <repository-url>
+cd alfazaa_mobile_new
+
+# Install dependencies
+npm install --legacy-peer-deps
+
+# iOS setup
+cd ios && pod install && cd ..
+
+# Run on Android
+npx react-native run-android
+
+# Run on iOS
+npx react-native run-ios
+```
+
+### **Google Drive Setup**
+1. **Create Google Apps Script project**
+2. **Deploy as Web App**
+3. **Update URL in `PrinterService.ts`**
+4. **Test with sample data**
+
+## 🔍 Error Handling
+
+### **Network Errors**
+- **Connection timeouts** handled gracefully
+- **Retry mechanisms** for failed uploads
+- **User feedback** with clear error messages
+
+### **Google Drive Errors**
+- **Permission issues** detected and reported
+- **File size limits** handled
+- **Folder access** validated
+
+### **Local Errors**
+- **Database failures** with fallback options
+- **Printing errors** with alternative methods
+- **Form validation** with user guidance
+
+## 📈 Future Enhancements
+
+### **Planned Features**
+- **Image capture** for damage documentation
+- **Digital signatures** for customer approval
+- **Offline sync** when connection restored
+- **Multi-language support**
+- **Advanced reporting** and analytics
+
+### **Technical Improvements**
+- **Image compression** and optimization
+- **Batch upload** capabilities
+- **Real-time sync** status
+- **Enhanced error recovery**
+
+## 🛡️ Security & Privacy
+
+### **Data Protection**
+- **Local SQLite** encryption
+- **Secure API** communication
+- **No sensitive data** in logs
+- **User consent** for data collection
+
+### **Google Drive Security**
+- **OAuth 2.0** authentication
+- **Scoped permissions** (read/write only)
+- **Secure file storage**
+- **Access logging** and monitoring
+
+---
+
+**Built with ❤️ for efficient vehicle intake management**
